@@ -193,20 +193,22 @@ export const testimonialsData: TestimonialItem[] = [
 ];
 
 export const quickLinks = [
-  { name: "Home", href: "#" },
-  { name: "About Us", href: "#about" },
-  { name: "Our Services", href: "#services" },
-  { name: "How It Works", href: "#how-it-works" },
-  { name: "Resources", href: "#resources" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Our Services", href: "/#services" },
+  { name: "How It Works", href: "/#how-it-works" },
+  { name: "Resources", href: "/#resources" },
+  { name: "Contact", href: "/contact" },
 ];
 
-export const footerServices = [
-  "IEPF Recovery",
-  "Physical to Demat",
-  "Transmission",
-  "Duplicate Shares",
-  "Unclaimed Dividends",
-  "PF Recovery",
-  "Other Services",
+export const serviceOptions = [
+  { value: "iepf", label: "IEPF Share & Dividend Recovery" },
+  { value: "demat", label: "Physical Shares to Demat" },
+  { value: "transmission", label: "Transmission of Shares" },
+  { value: "duplicate", label: "Lost / Duplicate Share Certificates" },
+  { value: "dividends", label: "Unpaid / Unclaimed Dividends" },
+  { value: "forgotten", label: "Old / Forgotten Shares" },
+  { value: "nri", label: "NRI Investment Recovery" },
+  { value: "pf", label: "PF Recovery" },
+  { value: "other", label: "Other" },
 ];
