@@ -1,13 +1,9 @@
-"use client";
-
-import { useModals } from "@/context/ModalContext";
 import React from "react";
 import Link from "next/link";
 import HeroSlider from "@/components/home/HeroSlider";
 import type { Banner } from "@/lib/banners";
 
 export default function Hero({ banners }: { banners: Banner[] }) {
-  const { openConsultation } = useModals();
   return (
     <section style={{ backgroundColor: "#faf8f5", paddingTop: "40px", paddingBottom: "48px", borderBottom: "1px solid #e7dfcf", position: "relative" }}>
       <div className="container-custom">
@@ -46,13 +42,9 @@ export default function Hero({ banners }: { banners: Banner[] }) {
 
             {/* Action Buttons */}
             <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "0", flexWrap: "wrap" }}>
-              <button 
-                onClick={openConsultation}
-                className="btn-primary-gold" 
-                style={{ fontSize: "0.96rem", padding: "13px 28px" }}
-              >
+              <Link href="/contact" className="btn-primary-gold" style={{ fontSize: "0.96rem", padding: "13px 28px" }}>
                 Check Your Investments
-              </button>
+              </Link>
               
               <Link href="/contact" 
                 className="btn-outline-white" 

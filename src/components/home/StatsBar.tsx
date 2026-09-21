@@ -1,46 +1,27 @@
-"use client";
-
-import React from "react";
 import { Smile, Coins, Award, Shield } from "lucide-react";
 import { statsData, StatItem } from "@/data/siteData";
 
-export default function StatsBar() {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case "smile": return <Smile size={20} />;
-      case "coins": return <Coins size={20} />;
-      case "award": return <Award size={20} />;
-      case "shield": return <Shield size={20} />;
-      default: return <Award size={20} />;
-    }
-  };
+const icons: Record<string, React.ReactNode> = {
+  smile: <Smile size={20} />,
+  coins: <Coins size={20} />,
+  award: <Award size={20} />,
+  shield: <Shield size={20} />,
+};
 
+export default function StatsBar() {
   return (
-    <section style={{
-      background: "linear-gradient(135deg, #101c16 0%, #182820 40%, #14221d 100%)",
-      paddingTop: "44px",
-      paddingBottom: "48px"
-    }}>
+    <section className="stats-section">
       <div className="container-custom">
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "12px"
-        }} className="stats-grid">
-          {statsData.map((stat: StatItem, i: number) => (
-            <div key={i} className="stat-card" style={{
-              borderRight: i < statsData.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none"
-            }}>
-              <div className="stat-icon">
-                {getIcon(stat.icon)}
-              </div>
+        <div className="stats-grid">
+          {statsData.map((stat: StatItem) => (
+            <div key={stat.label} className="stat-card">
+              <div className="stat-icon">{icons[stat.icon] ?? icons.award}</div>
               <div className="stat-value">{stat.value}</div>
               <div className="stat-label">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
-
     </section>
   );
 }

@@ -1,6 +1,3 @@
-"use client";
-
-import { useModals } from "@/context/ModalContext";
 import React from "react";
 import { 
   FileText, 
@@ -12,9 +9,9 @@ import {
   ShieldCheck 
 } from "lucide-react";
 import { processSteps, StepItem } from "@/data/siteData";
+import Link from "next/link";
 
 export default function ProcessStepper() {
-  const { openConsultation } = useModals();
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "file-text":
@@ -91,13 +88,9 @@ export default function ProcessStepper() {
 
         {/* Action Button */}
         <div style={{ textAlign: "center" }}>
-          <button 
-            onClick={openConsultation}
-            className="btn-primary-gold" 
-            style={{ fontSize: "0.96rem", padding: "13px 32px" }}
-          >
+          <Link href="/contact" className="btn-primary-gold" style={{ fontSize: "0.96rem", padding: "13px 32px" }}>
             Start Your Recovery Journey
-          </button>
+          </Link>
         </div>
 
       </div>

@@ -1,11 +1,8 @@
-"use client";
-
-import { useModals } from "@/context/ModalContext";
 import { Headphones } from "lucide-react";
 import { servicesData } from "@/data/siteData";
+import Link from "next/link";
 
 export default function ExpertCta() {
-  const { openConsultation } = useModals();
   const cta = servicesData.find((s) => s.isSpecial);
   if (!cta) return null;
 
@@ -22,9 +19,9 @@ export default function ExpertCta() {
             <p className="expert-cta-desc">{cta.description}</p>
           </div>
 
-          <button onClick={openConsultation} className="btn-primary-gold expert-cta-btn">
+          <Link href="/contact" className="btn-primary-gold expert-cta-btn">
             {cta.ctaText}
-          </button>
+          </Link>
         </div>
       </div>
     </section>

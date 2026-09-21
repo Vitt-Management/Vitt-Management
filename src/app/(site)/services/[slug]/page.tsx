@@ -6,7 +6,6 @@ import { Check, FileText, Phone } from "lucide-react";
 import { getServiceBySlug, getServices } from "@/lib/services";
 import { getSiteContact } from "@/lib/contact";
 import ServiceCard from "@/components/services/ServiceCard";
-import OpenConsultationButton from "@/components/services/OpenConsultationButton";
 
 // Content comes from the database; admin edits show up within this window.
 export const revalidate = 300;
@@ -59,7 +58,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <Link href="/contact" className="btn-primary-gold" style={{ padding: "14px 30px", fontSize: "1rem" }}>
               Contact Now
             </Link>
-            <OpenConsultationButton className="svc-banner-outline">Book a Free Consultation</OpenConsultationButton>
+            <a href={contact.phoneHref} className="svc-banner-outline">Call Us</a>
           </div>
         </div>
       </section>
@@ -157,7 +156,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <Link href="/contact" className="btn-primary-gold" style={{ padding: "14px 24px", fontSize: "1rem" }}>
                     Contact Now
                   </Link>
-                  <OpenConsultationButton className="btn-outline-gold svc-side-btn">Book a Free Consultation</OpenConsultationButton>
                   <a href={contact.phoneHref} className="svc-side-call">
                     <Phone size={18} /> {contact.phone}
                   </a>

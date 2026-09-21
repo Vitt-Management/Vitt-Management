@@ -1,11 +1,8 @@
-"use client";
-
-import { useModals } from "@/context/ModalContext";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function OldDocumentsBanner() {
-  const { openConsultation } = useModals();
   return (
     <section style={{
       backgroundColor: "#f5efe4",
@@ -66,13 +63,9 @@ export default function OldDocumentsBanner() {
               us trace your investments. Don&apos;t throw them away.
             </p>
 
-            <button
-              onClick={openConsultation}
-              className="btn-primary-gold"
-              style={{ fontSize: "0.94rem", padding: "12px 28px" }}
-            >
+            <Link href="/contact" className="btn-primary-gold" style={{ fontSize: "0.94rem", padding: "12px 28px" }}>
               Get Them Checked
-            </button>
+            </Link>
           </div>
 
         </div>

@@ -1,10 +1,8 @@
-"use client";
-
 import Link from "next/link";
-import { useModals } from "@/context/ModalContext";
+import { getSiteContact } from "@/lib/contact";
 
-export default function CtaBanner() {
-  const { openConsultation } = useModals();
+export default async function CtaBanner() {
+  const contact = await getSiteContact();
   return (
     <section className="cta-light">
       <div className="container-custom">
@@ -15,12 +13,12 @@ export default function CtaBanner() {
             Tell us what you remember, even if it is only a company name or an old certificate. Our experts will help you find out what is yours.
           </p>
           <div className="cta-light-actions">
-            <button onClick={openConsultation} className="btn-primary-gold" style={{ fontSize: "1.02rem", padding: "15px 34px" }}>
+            <Link href="/contact" className="btn-primary-gold" style={{ fontSize: "1.02rem", padding: "15px 34px" }}>
               Get a Free Consultation
-            </button>
-            <Link href="/contact" className="btn-outline-gold" style={{ fontSize: "1.02rem", padding: "14px 34px" }}>
-              Contact Now
             </Link>
+            <a href={contact.phoneHref} className="btn-outline-gold" style={{ fontSize: "1.02rem", padding: "14px 34px" }}>
+              Call Us
+            </a>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useModals } from "@/context/ModalContext";
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,7 +21,6 @@ function ServiceThumb({ src, size }: { src: string | null; size: number }) {
 }
 
 export default function Navbar({ services }: { services: NavService[] }) {
-  const { openConsultation } = useModals();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
@@ -114,9 +112,9 @@ export default function Navbar({ services }: { services: NavService[] }) {
 
         {/* Right CTA Area */}
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <button onClick={openConsultation} className="btn-primary-gold nav-cta" style={{ fontSize: "0.95rem", padding: "11px 22px" }}>
+          <Link href="/contact" className="btn-primary-gold nav-cta" style={{ fontSize: "0.95rem", padding: "11px 22px" }} onClick={closeAll}>
             Get a Free Assessment
-          </button>
+          </Link>
 
           {/* Mobile Hamburger Toggle */}
           <button
@@ -178,9 +176,9 @@ export default function Navbar({ services }: { services: NavService[] }) {
             <span>Contact</span>
           </Link>
 
-          <button onClick={() => { closeAll(); openConsultation(); }} className="btn-primary-gold" style={{ marginTop: "14px", padding: "14px 24px", fontSize: "1rem" }}>
+          <Link href="/contact" onClick={closeAll} className="btn-primary-gold" style={{ marginTop: "14px", padding: "14px 24px", fontSize: "1rem" }}>
             Book a Free Consultation
-          </button>
+          </Link>
         </nav>
       )}
     </header>
