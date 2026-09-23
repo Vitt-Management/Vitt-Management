@@ -9,6 +9,7 @@ import ServiceCard from "@/components/services/ServiceCard";
 
 // Content comes from the database; admin edits show up within this window.
 export const revalidate = 300;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   return (await getServices()).map((s) => ({ slug: s.slug }));

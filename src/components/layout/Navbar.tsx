@@ -29,6 +29,7 @@ export default function Navbar({ services }: { services: NavService[] }) {
   const onHome = pathname === "/";
   const onServices = pathname.startsWith("/services");
   const onAbout = pathname === "/about";
+  const onFaq = pathname === "/faq";
   const onContact = pathname === "/contact";
   const cur = (active: boolean) => (active ? ({ "aria-current": "page" } as const) : {});
 
@@ -104,6 +105,9 @@ export default function Navbar({ services }: { services: NavService[] }) {
           <Link href="/about" className={`nav-link${onAbout ? " active" : ""}`} {...cur(onAbout)}>
             About Us
           </Link>
+          <Link href="/faq" className={`nav-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
+            FAQs
+          </Link>
           <Link href="/#resources" className="nav-link">Resources</Link>
           <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
             Contact
@@ -170,6 +174,9 @@ export default function Navbar({ services }: { services: NavService[] }) {
           <Link href="/#how-it-works" onClick={closeAll} className="m-link"><span>How It Works</span></Link>
           <Link href="/about" onClick={closeAll} className={`m-link${onAbout ? " active" : ""}`} {...cur(onAbout)}>
             <span>About Us</span>
+          </Link>
+          <Link href="/faq" onClick={closeAll} className={`m-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
+            <span>FAQs</span>
           </Link>
           <Link href="/#resources" onClick={closeAll} className="m-link"><span>Resources</span></Link>
           <Link href="/contact" onClick={closeAll} className={`m-link${onContact ? " active" : ""}`} {...cur(onContact)}>

@@ -1,7 +1,7 @@
 /* CSS Reset & Design Tokens */
 :root {
-  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
-  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-cormorant-garamond), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-script: var(--font-script), "Caveat", "Brush Script MT", cursive;
 
   /* Color Palette matching reference UI */
@@ -1017,12 +1017,12 @@ img {
   font-weight: 700;
 }
 
-/* Wide links need room: switch to the phone menu below 1080px */
+/* Wide links need room: switch to the phone menu below 1160px */
 @media (max-width: 1240px) {
   .desktop-nav { gap: 22px; }
   .nav-link { font-size: 0.96rem; }
 }
-@media (max-width: 1080px) {
+@media (max-width: 1160px) {
   .desktop-nav {
     display: none !important;
   }
@@ -1271,6 +1271,38 @@ img {
 .svc-faq p { padding: 0 22px 20px; font-size: 1.05rem; line-height: 1.7; color: var(--text-body); }
 .svc-disclaimer { margin-top: 20px; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
 
+/* Global FAQ page */
+.faq-page-title {
+  margin: 18px 0 14px;
+  max-width: 760px;
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+}
+.faq-page-intro {
+  max-width: 620px;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #e3ebe6;
+}
+.faq-page-section {
+  padding: 76px 0 88px;
+  background: var(--bg-page);
+}
+.faq-page-content {
+  max-width: 900px;
+}
+.faq-page-empty {
+  padding: 28px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--text-body);
+  font-size: 1.05rem;
+}
+
 .svc-side { position: sticky; top: 104px; }
 .svc-side-card {
   background: linear-gradient(180deg, #fbf7ee 0%, #f6eee0 100%);
@@ -1407,13 +1439,21 @@ img {
   line-height: 1;
   color: #ffffff;
 }
-.footer-logo-sub {
+.footer-brand-attribution,
+.page-brand-attribution {
   display: block;
   margin-top: 6px;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.footer-brand-attribution {
   color: #b9c6be;
+}
+.page-brand-attribution {
+  color: #dfb87c;
+  margin-bottom: 16px;
 }
 .footer-tagline {
   font-family: var(--font-serif);
@@ -1512,6 +1552,8 @@ img {
 @media (max-width: 640px) {
   .site-footer { padding-top: 52px; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-logo-name { font-size: 1.65rem; }
+  .footer-brand-attribution { font-size: 0.72rem; }
   .footer-bottom { padding-bottom: 104px; } /* keeps the last lines clear of the floating WhatsApp/Call buttons */
   .cta-light { padding: 60px 0 64px; }
   .cta-light-actions > * { width: 100%; }

@@ -18,7 +18,7 @@ export default function Hero({ banners }: { banners: Banner[] }) {
             <h1 style={{
               fontFamily: "var(--font-serif)",
               fontSize: "clamp(2.4rem, 4vw, 3.5rem)",
-              fontWeight: 800,
+              fontWeight: 700,
               lineHeight: 1.15,
               color: "#131f18",
               letterSpacing: "-0.025em",

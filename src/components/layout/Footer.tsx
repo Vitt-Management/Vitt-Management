@@ -24,8 +24,8 @@ export default function Footer({ services, contact }: { services: { slug: string
                 <Image src="/images/logo.png" alt="" width={66} height={56} style={{ height: "52px", width: "auto" }} />
               </span>
               <span>
-                <span className="footer-logo-name">VITT</span>
-                <span className="footer-logo-sub">MANAGEMENT</span>
+                <span className="footer-logo-name">VITT MANAGEMENT</span>
+                <span className="footer-brand-attribution">A brand of VittEdge Global Advisory LLP</span>
               </span>
             </Link>
             <p className="footer-tagline">Recover Today.<br />Secure Tomorrow.</p>
