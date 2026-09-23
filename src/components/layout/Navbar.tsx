@@ -45,7 +45,7 @@ export default function Navbar({ services }: { services: NavService[] }) {
         {/* Logo Section */}
         <Link href="/" className="brand-link" aria-label="Vitt Management - home" onClick={closeAll}>
           <span className="brand-row">
-            <Image src="/images/logo.png" alt="" width={66} height={56} priority className="brand-logo" />
+            <Image src="/images/final_logo.png" alt="" width={66} height={56} priority className="brand-logo" />
             <span className="brand-divider" aria-hidden="true" />
             <span className="brand-name">VITT</span>
           </span>
@@ -108,7 +108,6 @@ export default function Navbar({ services }: { services: NavService[] }) {
           <Link href="/faq" className={`nav-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             FAQs
           </Link>
-          <Link href="/#resources" className="nav-link">Resources</Link>
           <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
             Contact
           </Link>
@@ -178,7 +177,6 @@ export default function Navbar({ services }: { services: NavService[] }) {
           <Link href="/faq" onClick={closeAll} className={`m-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             <span>FAQs</span>
           </Link>
-          <Link href="/#resources" onClick={closeAll} className="m-link"><span>Resources</span></Link>
           <Link href="/contact" onClick={closeAll} className={`m-link${onContact ? " active" : ""}`} {...cur(onContact)}>
             <span>Contact</span>
           </Link>

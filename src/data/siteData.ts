@@ -198,7 +198,6 @@ export const quickLinks = [
   { name: "FAQs", href: "/faq" },
   { name: "Our Services", href: "/#services" },
   { name: "How It Works", href: "/#how-it-works" },
-  { name: "Resources", href: "/#resources" },
   { name: "Contact", href: "/contact" },
 ];
 

@@ -9,7 +9,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
     <div className="admin-shell">
       <aside className="admin-side">
         <div className="brand">
-          <Image src="/images/logo.png" alt="" width={40} height={34} style={{ height: "34px", width: "auto", background: "#fff", borderRadius: "6px", padding: "3px 5px" }} />
+          <Image src="/images/final_logo.png" alt="" width={40} height={34} style={{ height: "34px", width: "auto", background: "#fff", borderRadius: "6px", padding: "3px 5px" }} />
           VITT Admin
         </div>
         <AdminNav />

@@ -5,6 +5,10 @@ import { quickLinks } from "@/data/siteData";
 import type { SiteContact } from "@/lib/contact-shared";
 
 export default function Footer({ services, contact }: { services: { slug: string; title: string }[]; contact: SiteContact }) {
+  const lastPrimaryServiceIndex = services.findIndex((service) => service.slug === "forgotten-shares-search");
+  const footerServices = services.filter(
+    (service, index) => index <= lastPrimaryServiceIndex || service.slug === "other-financial-asset-assistance"
+  );
   const contactItems = [
     { icon: Phone, label: "Call us", value: contact.phone, href: contact.phoneHref },
     { icon: Mail, label: "Email us", value: contact.email, href: `mailto:${contact.email}` },
@@ -21,7 +25,7 @@ export default function Footer({ services, contact }: { services: { slug: string
           <div className="footer-brand">
             <Link href="/" className="footer-logo" aria-label="Vitt Management - home">
               <span className="footer-logo-badge">
-                <Image src="/images/logo.png" alt="" width={66} height={56} style={{ height: "52px", width: "auto" }} />
+                <Image src="/images/final_logo.png" alt="" width={80} height={80} className="footer-logo-image" />
               </span>
               <span>
                 <span className="footer-logo-name">VITT MANAGEMENT</span>
@@ -50,7 +54,7 @@ export default function Footer({ services, contact }: { services: { slug: string
           <div>
             <h4 className="footer-title">Our Services</h4>
             <div className="footer-links">
-              {services.map((s) => (
+              {footerServices.map((s) => (
                 <Link key={s.slug} href={`/services/${s.slug}`} className="footer-link">
                   {s.title}
                 </Link>

@@ -1421,14 +1421,21 @@ img {
 .footer-logo {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   margin-bottom: 20px;
 }
 .footer-logo-badge {
   display: flex;
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 7px 10px;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+.footer-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .footer-logo-name {
   display: block;
@@ -1552,6 +1559,8 @@ img {
 @media (max-width: 640px) {
   .site-footer { padding-top: 52px; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-logo { gap: 12px; }
+  .footer-logo-badge { width: 66px; height: 66px; }
   .footer-logo-name { font-size: 1.65rem; }
   .footer-brand-attribution { font-size: 0.72rem; }
   .footer-bottom { padding-bottom: 104px; } /* keeps the last lines clear of the floating WhatsApp/Call buttons */
