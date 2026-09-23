@@ -31,6 +31,8 @@ export default function Navbar({ services }: { services: NavService[] }) {
   const onAbout = pathname === "/about";
   const onFaq = pathname === "/faq";
   const onContact = pathname === "/contact";
+  const servicesPerColumn = Math.ceil(services.length / 2);
+  const serviceColumns = [services.slice(0, servicesPerColumn), services.slice(servicesPerColumn)];
   const cur = (active: boolean) => (active ? ({ "aria-current": "page" } as const) : {});
 
   const closeAll = () => {
@@ -45,11 +47,13 @@ export default function Navbar({ services }: { services: NavService[] }) {
         {/* Logo Section */}
         <Link href="/" className="brand-link" aria-label="Vitt Management - home" onClick={closeAll}>
           <span className="brand-row">
-            <Image src="/images/final_logo.png" alt="" width={66} height={56} priority className="brand-logo" />
+            <Image src="/images/final_logo.png" alt="" width={70} height={70} priority className="brand-logo" />
             <span className="brand-divider" aria-hidden="true" />
-            <span className="brand-name">VITT</span>
+            <span className="brand-copy">
+              <span className="brand-name">VITT</span>
+              <span className="brand-sub">MANAGEMENT</span>
+            </span>
           </span>
-          <span className="brand-sub">MANAGEMENT</span>
         </Link>
 
         {/* Desktop Nav Links */}
@@ -81,21 +85,25 @@ export default function Navbar({ services }: { services: NavService[] }) {
             {servicesDropdownOpen && (
               <div className="nav-dropdown-wrap">
                 <div className="nav-dropdown">
-                  {services.map((svc) => {
-                    const active = pathname === `/services/${svc.slug}`;
-                    return (
-                      <Link
-                        key={svc.slug}
-                        href={`/services/${svc.slug}`}
-                        className={`dropdown-item${active ? " active" : ""}`}
-                        onClick={closeAll}
-                        {...cur(active)}
-                      >
-                        <ServiceThumb src={svc.image_url} size={40} />
-                        <span>{svc.title}</span>
-                      </Link>
-                    );
-                  })}
+                  {serviceColumns.map((column, columnIndex) => (
+                    <div key={columnIndex} className="nav-dropdown-column">
+                      {column.map((svc) => {
+                        const active = pathname === `/services/${svc.slug}`;
+                        return (
+                          <Link
+                            key={svc.slug}
+                            href={`/services/${svc.slug}`}
+                            className={`dropdown-item${active ? " active" : ""}`}
+                            onClick={closeAll}
+                            {...cur(active)}
+                          >
+                            <ServiceThumb src={svc.image_url} size={40} />
+                            <span>{svc.title}</span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ))}
                 </div>
               </div>
             )}

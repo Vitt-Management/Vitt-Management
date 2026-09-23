@@ -25,10 +25,13 @@ export default function Footer({ services, contact }: { services: { slug: string
           <div className="footer-brand">
             <Link href="/" className="footer-logo" aria-label="Vitt Management - home">
               <span className="footer-logo-badge">
-                <Image src="/images/final_logo.png" alt="" width={80} height={80} className="footer-logo-image" />
+                <Image src="/images/final_logo.png" alt="" width={100} height={100} className="footer-logo-image" />
               </span>
-              <span>
-                <span className="footer-logo-name">VITT MANAGEMENT</span>
+              <span className="footer-logo-copy">
+                <span className="footer-logo-name">
+                  <span>VITT</span>
+                  <span className="footer-logo-management">MANAGEMENT</span>
+                </span>
                 <span className="footer-brand-attribution">A brand of VittEdge Global Advisory LLP</span>
               </span>
             </Link>

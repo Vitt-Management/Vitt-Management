@@ -924,20 +924,27 @@ img {
   z-index: 200;
 }
 .nav-dropdown {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
   background: #ffffff;
   border: 1px solid #e7dfcf;
   border-radius: 12px;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
   padding: 10px;
-  min-width: 340px;
-  max-height: calc(100vh - 130px);
-  overflow-y: auto;
+  min-width: 680px;
+}
+.nav-dropdown-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
 }
 .dropdown-item {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 8px 12px;
+  padding: 7px 10px;
   border-radius: 8px;
   font-size: 0.98rem;
   font-weight: 500;
@@ -1034,8 +1041,6 @@ img {
 /* Navbar brand (logo | VITT, MANAGEMENT underneath) */
 .brand-link {
   display: inline-flex;
-  flex-direction: column;
-  gap: 3px;
   flex-shrink: 0;
   text-decoration: none;
 }
@@ -1045,13 +1050,18 @@ img {
   gap: 12px;
 }
 .brand-logo {
-  height: 54px;
+  height: 70px;
   width: auto;
 }
 .brand-divider {
   width: 1px;
-  height: 36px;
+  height: 42px;
   background: #cdbf9f;
+}
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 .brand-name {
   font-family: var(--font-serif);
@@ -1068,15 +1078,13 @@ img {
   letter-spacing: 0.3em;
   color: #38473e;
   text-transform: uppercase;
-  text-align: justify;
-  text-align-last: justify;
-  padding-left: 2px;
+  line-height: 1;
 }
 
 @media (max-width: 640px) {
   .brand-row { gap: 8px; }
-  .brand-logo { height: 40px; }
-  .brand-divider { height: 26px; }
+  .brand-logo { height: 50px; }
+  .brand-divider { height: 30px; }
   .brand-name { font-size: 1.55rem; }
   .brand-sub { font-size: 0.56rem; letter-spacing: 0.24em; }
   .nav-cta {
@@ -1428,8 +1436,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   flex-shrink: 0;
 }
 .footer-logo-image {
@@ -1437,14 +1445,22 @@ img {
   height: 100%;
   object-fit: contain;
 }
+.footer-logo-copy {
+  min-width: 0;
+}
 .footer-logo-name {
-  display: block;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  line-height: 1;
+  line-height: 0.95;
   color: #ffffff;
+}
+.footer-logo-management {
+  margin-top: 4px;
+  margin-left: 0;
 }
 .footer-brand-attribution,
 .page-brand-attribution {
@@ -1560,7 +1576,7 @@ img {
   .site-footer { padding-top: 52px; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-logo { gap: 12px; }
-  .footer-logo-badge { width: 66px; height: 66px; }
+  .footer-logo-badge { width: 78px; height: 78px; }
   .footer-logo-name { font-size: 1.65rem; }
   .footer-brand-attribution { font-size: 0.72rem; }
   .footer-bottom { padding-bottom: 104px; } /* keeps the last lines clear of the floating WhatsApp/Call buttons */
