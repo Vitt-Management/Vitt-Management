@@ -9,7 +9,7 @@ export default async function SiteShell({ children }: { children: React.ReactNod
   const services = allServices.map(({ slug, title, image_url }) => ({ slug, title, image_url }));
   return (
     <>
-      <Navbar services={services} />
+      <Navbar services={services} contact={contact} />
       <main style={{ flex: 1 }}>{children}</main>
       <Footer services={services} contact={contact} />
       <FloatingContact contact={contact} />

@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Phone, Mail } from "lucide-react";
+import type { SiteContact } from "@/lib/contact-shared";
 
 export interface NavService {
   slug: string;
@@ -20,11 +21,21 @@ function ServiceThumb({ src, size }: { src: string | null; size: number }) {
   );
 }
 
-export default function Navbar({ services }: { services: NavService[] }) {
+export default function Navbar({
+  services,
+  contact,
+}: {
+  services: NavService[];
+  contact?: SiteContact;
+}) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  const phone = contact?.phone || "+91 92752 31114";
+  const phoneHref = contact?.phoneHref || "tel:+919275231114";
+  const email = contact?.email || "info@vittmanagement.in";
 
   const onHome = pathname === "/";
   const onServices = pathname.startsWith("/services");
@@ -41,17 +52,37 @@ export default function Navbar({ services }: { services: NavService[] }) {
   };
 
   return (
-    <header style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e7dfcf", position: "sticky", top: 0, zIndex: 100 }}>
-      <div className="container-custom" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "80px" }}>
+    <header className="site-header">
+      {/* Top Bar with Phone & Email */}
+      <div className="top-bar">
+        <div className="container-custom top-bar-inner">
+          <div className="top-bar-left">
+            <a href={phoneHref} className="top-bar-link" aria-label={`Call us at ${phone}`}>
+              <Phone size={13} className="top-bar-icon" />
+              <span>{phone}</span>
+            </a>
+            <span className="top-bar-divider" aria-hidden="true" />
+            <a href={`mailto:${email}`} className="top-bar-link" aria-label={`Email us at ${email}`}>
+              <Mail size={13} className="top-bar-icon" />
+              <span>{email}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <div className="main-navbar">
+        <div className="container-custom nav-container">
 
         {/* Logo Section */}
         <Link href="/" className="brand-link" aria-label="Vitt Management - home" onClick={closeAll}>
           <span className="brand-row">
-            <Image src="/images/final_logo.png" alt="" width={70} height={70} priority className="brand-logo" />
+            <Image src="/images/final_logo.png" alt="Vitt Management" width={82} height={82} priority className="brand-logo" />
             <span className="brand-divider" aria-hidden="true" />
             <span className="brand-copy">
               <span className="brand-name">VITT</span>
               <span className="brand-sub">MANAGEMENT</span>
+              <span className="brand-tagline">Recovering Wealth. Restoring Trust.</span>
             </span>
           </span>
         </Link>
@@ -116,9 +147,15 @@ export default function Navbar({ services }: { services: NavService[] }) {
           <Link href="/faq" className={`nav-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             FAQs
           </Link>
-          <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
-            Contact
-          </Link>
+          <div className="nav-contact-wrapper">
+            <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
+              Contact Us
+            </Link>
+            <a href={phoneHref} className="nav-call-sub" aria-label={`Call Now at ${phone}`}>
+              <Phone size={11} />
+              <span>Call Now</span>
+            </a>
+          </div>
         </nav>
 
         {/* Right CTA Area */}
@@ -138,6 +175,7 @@ export default function Navbar({ services }: { services: NavService[] }) {
             {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
+      </div>
       </div>
 
       {/* Mobile Drawer */}
@@ -186,8 +224,12 @@ export default function Navbar({ services }: { services: NavService[] }) {
             <span>FAQs</span>
           </Link>
           <Link href="/contact" onClick={closeAll} className={`m-link${onContact ? " active" : ""}`} {...cur(onContact)}>
-            <span>Contact</span>
+            <span>Contact Us</span>
           </Link>
+          <a href={phoneHref} onClick={closeAll} className="m-link" style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--gold-dark)", fontWeight: 700 }}>
+            <Phone size={18} style={{ color: "var(--gold-primary)" }} />
+            <span>Call Now ({phone})</span>
+          </a>
 
           <Link href="/contact" onClick={closeAll} className="btn-primary-gold" style={{ marginTop: "14px", padding: "14px 24px", fontSize: "1rem" }}>
             Book a Free Consultation

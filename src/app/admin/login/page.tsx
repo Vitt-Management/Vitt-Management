@@ -8,7 +8,9 @@ export default function LoginPage() {
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "22px" }}>
           <Image src="/images/final_logo.png" alt="Vitt Management" width={56} height={47} style={{ height: "47px", width: "auto" }} />
           <div>
-            <div style={{ fontWeight: 800, fontSize: "1.3rem" }}>VITT Admin</div>
+            <div style={{ fontWeight: 800, fontSize: "1.35rem", fontFamily: "var(--font-serif)" }}>
+              <span style={{ color: "#0b3d7b" }}>VITT</span> <span style={{ color: "#b88646" }}>Admin</span>
+            </div>
             <div style={{ color: "var(--text-muted)", fontSize: "1rem" }}>Sign in to manage your site</div>
           </div>
         </div>

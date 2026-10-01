@@ -8,7 +8,7 @@ export default async function FaqAdminPage() {
   await requireAdmin();
   const { data, error } = await createAdminClient()
     .from("global_faqs")
-    .select("id, question, answer, is_active")
+    .select("id, question, answer, is_active, category")
     .order("sort_order", { ascending: true })
     .order("created_at", { ascending: true });
 
@@ -17,7 +17,9 @@ export default async function FaqAdminPage() {
   return (
     <>
       <h1 className="admin-title">Global FAQs</h1>
-      <p className="admin-sub">These questions appear on the public FAQ page. You can add, edit, show, hide, reorder, or delete them here.</p>
+      <p className="admin-sub">
+        General and Fees &amp; Privacy questions shown on the public FAQ page. FAQs for a specific service are edited inside that service (Services &rarr; Edit).
+      </p>
       <GlobalFaqManager initialFaqs={(data ?? []) as GlobalFaqRow[]} />
     </>
   );

@@ -1,26 +1,46 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { quickLinks } from "@/data/siteData";
 import type { SiteContact } from "@/lib/contact-shared";
 
 export default function Footer({ services, contact }: { services: { slug: string; title: string }[]; contact: SiteContact }) {
-  const lastPrimaryServiceIndex = services.findIndex((service) => service.slug === "forgotten-shares-search");
-  const footerServices = services.filter(
-    (service, index) => index <= lastPrimaryServiceIndex || service.slug === "other-financial-asset-assistance"
-  );
+  const registeredAddress =
+    contact.address && contact.address !== "Mumbai, India"
+      ? contact.address
+      : "VittEdge Global Advisory LLP. A-11, Fourth Floor, Lane No.18, Joga Bai Extension, Okhla, New Delhi, 110025. India.";
+
   const contactItems = [
     { icon: Phone, label: "Call us", value: contact.phone, href: contact.phoneHref },
     { icon: Mail, label: "Email us", value: contact.email, href: `mailto:${contact.email}` },
-    { icon: MapPin, label: "Visit us", value: contact.address },
-    { icon: Clock, label: "Working hours", value: contact.hours },
+    { icon: MapPin, label: "Registered Address", value: registeredAddress },
   ].filter((i) => i.value);
 
   return (
     <footer id="contact" className="site-footer">
       <div className="container-custom">
-        <div className="footer-grid">
+        {/* Tier 1: All Services Mega Grid */}
+        {services && services.length > 0 && (
+          <div className="footer-services-section">
+            <div className="footer-services-header">
+              <h4 className="footer-title">Our Services & Solutions</h4>
+              <p className="footer-services-subtitle">
+                Comprehensive financial asset tracing, recovery, dematerialization and advisory services
+              </p>
+            </div>
+            <div className="footer-services-grid">
+              {services.map((s) => (
+                <Link key={s.slug} href={`/services/${s.slug}`} className="footer-service-item">
+                  <span className="footer-service-dot" />
+                  <span className="footer-service-name">{s.title}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
+        {/* Tier 2: Brand, Quick Links & Contact Information */}
+        <div className="footer-main-grid">
           {/* Brand */}
           <div className="footer-brand">
             <Link href="/" className="footer-logo" aria-label="Vitt Management - home">
@@ -29,8 +49,8 @@ export default function Footer({ services, contact }: { services: { slug: string
               </span>
               <span className="footer-logo-copy">
                 <span className="footer-logo-name">
-                  <span>VITT</span>
-                  <span className="footer-logo-management">MANAGEMENT</span>
+                  <span className="footer-brand-vitt">VITT</span>
+                  <span className="footer-brand-mgmt">MANAGEMENT</span>
                 </span>
                 <span className="footer-brand-attribution">A brand of VittEdge Global Advisory LLP</span>
               </span>
@@ -42,7 +62,7 @@ export default function Footer({ services, contact }: { services: { slug: string
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="footer-quicklinks">
             <h4 className="footer-title">Quick Links</h4>
             <div className="footer-links">
               {quickLinks.map((link) => (
@@ -53,20 +73,8 @@ export default function Footer({ services, contact }: { services: { slug: string
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="footer-title">Our Services</h4>
-            <div className="footer-links">
-              {footerServices.map((s) => (
-                <Link key={s.slug} href={`/services/${s.slug}`} className="footer-link">
-                  {s.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-
           {/* Contact (from Admin > Contact details) */}
-          <div>
+          <div className="footer-contact-wrapper">
             <h4 className="footer-title">Contact Us</h4>
             <div className="footer-contact">
               {contactItems.map(({ icon: Icon, label, value, href }) => (
@@ -84,7 +92,13 @@ export default function Footer({ services, contact }: { services: { slug: string
               ))}
             </div>
           </div>
+        </div>
 
+        {/* Regulatory Disclaimer */}
+        <div className="footer-disclaimer">
+          <p>
+            <strong>Disclaimer:</strong> Vitt Management, A Brand of VittEdge Global Advisory LLP is a private consultancy firm and in any manner is not affiliated with, endorsed by, or part of SEBI, IEPF Authority or the Ministry of Corporate Affairs, Government of India. We provide advisory and facilitation services for recovery of Unclaimed Shares and Other Financial Assets on behalf of our clients. All the provided information is general guidance, not legal or financial advice. Requirements may differ between intermediaries and cases, and all the completed cases are subject to approval by the relevant authority.
+          </p>
         </div>
 
         {/* Bottom Bar */}

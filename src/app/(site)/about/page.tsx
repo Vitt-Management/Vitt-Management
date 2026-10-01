@@ -51,8 +51,9 @@ export default function AboutPage() {
             <span aria-hidden="true">/</span>
             <span aria-current="page">About Us</span>
           </nav>
-          <h1 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 5vw, 3.4rem)", fontWeight: 700, lineHeight: 1.15, color: "#ffffff", margin: "18px 0 16px", maxWidth: "760px" }}>
-            VITT MANAGEMENT
+          <h1 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 5vw, 3.4rem)", fontWeight: 700, lineHeight: 1.15, margin: "18px 0 16px", maxWidth: "760px" }}>
+            <span style={{ color: "#0b3d7b" }}>VITT</span>{" "}
+            <span style={{ color: "#b88646" }}>MANAGEMENT</span>
           </h1>
           <p className="page-brand-attribution">A brand of VittEdge Global Advisory LLP</p>
           <p style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", color: "#dfb87c", marginBottom: "16px" }}>

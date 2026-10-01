@@ -1,18 +1,21 @@
 import "server-only";
 import { createAdminClient } from "@/lib/supabase/admin";
 
+export type GlobalFaqCategory = "general" | "fees";
+
 export interface GlobalFaq {
   id: string;
   question: string;
   answer: string;
   sort_order: number;
   is_active: boolean;
+  category: GlobalFaqCategory;
 }
 
 export async function getGlobalFaqs(): Promise<GlobalFaq[]> {
   const { data, error } = await createAdminClient()
     .from("global_faqs")
-    .select("id, question, answer, sort_order, is_active")
+    .select("id, question, answer, sort_order, is_active, category")
     .eq("is_active", true)
     .order("sort_order", { ascending: true })
     .order("created_at", { ascending: true });

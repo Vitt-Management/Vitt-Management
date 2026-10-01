@@ -22,7 +22,24 @@ function subscribeReducedMotion(onChange: () => void) {
   return () => mq.removeEventListener("change", onChange);
 }
 
+const INITIAL_BG_COLORS = [
+  "#101c16", // Deep Forest
+  "#8c5d24", // Gold Dark
+  "#1e3a5f", // Royal Blue
+  "#6b4226", // Warm Earth
+  "#285e61", // Deep Teal
+];
+
+function getAvatarBg(name: string) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  const index = Math.abs(hash) % INITIAL_BG_COLORS.length;
+  return INITIAL_BG_COLORS[index];
+}
+
 function ReviewCard({ t, hidden }: { t: TestimonialItem; hidden: boolean }) {
+  const initial = t.author ? t.author.trim().charAt(0).toUpperCase() : "V";
+
   return (
     <div className="review-card" aria-hidden={hidden || undefined}>
       <div className="quote-icon">&ldquo;</div>
@@ -37,7 +54,31 @@ function ReviewCard({ t, hidden }: { t: TestimonialItem; hidden: boolean }) {
       </div>
 
       <div className="reviewer-profile">
-        <Image src={t.avatar} alt={hidden ? "" : t.author} width={44} height={44} className="reviewer-avatar" draggable={false} />
+        {t.avatar ? (
+          <Image src={t.avatar} alt={hidden ? "" : t.author} width={44} height={44} className="reviewer-avatar" draggable={false} />
+        ) : (
+          <div
+            className="reviewer-avatar"
+            style={{
+              width: "44px",
+              height: "44px",
+              borderRadius: "50%",
+              backgroundColor: getAvatarBg(t.author),
+              color: "#ffffff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: 700,
+              fontSize: "1.1rem",
+              fontFamily: "var(--font-sans)",
+              flexShrink: 0,
+              border: "2px solid var(--gold-light)",
+            }}
+            aria-hidden="true"
+          >
+            {initial}
+          </div>
+        )}
         <div>
           <div className="reviewer-name">{t.author}</div>
           <div className="reviewer-loc">{t.location}</div>
@@ -142,10 +183,7 @@ export default function Testimonials() {
       <div className="container-custom">
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: "36px" }}>
-          <span className="section-tag">CLIENT STORIES</span>
-          <h2 className="section-title">
-            Real People. Real Recoveries.
-          </h2>
+          <h2 className="section-title">Client Stories</h2>
           <p className="section-subtitle" style={{ maxWidth: "620px", marginLeft: "auto", marginRight: "auto" }}>
             Hear from individuals and families who found their lost investments with our help.
           </p>

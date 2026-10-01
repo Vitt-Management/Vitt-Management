@@ -19,7 +19,7 @@ export interface TestimonialItem {
   quote: string;
   author: string;
   location: string;
-  avatar: string;
+  avatar?: string;
   rating?: number;
 }
 
@@ -96,25 +96,25 @@ export const servicesData: ServiceItem[] = [
 export const processSteps: StepItem[] = [
   {
     number: "01",
-    title: "Tell Us About Your Investment",
+    title: "Tell Us About Your Case",
     description: "Share available details (company, folio, certificates, old documents)",
     icon: "file-text",
   },
   {
     number: "02",
-    title: "We Trace & Assess",
+    title: "We Trace & Evaluate",
     description: "We identify what exists and where the asset currently stands",
     icon: "search",
   },
   {
     number: "03",
-    title: "We Build Your Case",
-    description: "We assess eligibility, ownership and prepare a document checklist",
+    title: "We Offer Commercials",
+    description: "Finalise the scope of work, proposal sent and MoU signed between the parties.",
     icon: "clipboard-check",
   },
   {
     number: "04",
-    title: "We Prepare & Submit",
+    title: "We Build, Prepare & Submit",
     description: "Requisite forms and documentation prepared and submitted",
     icon: "file-check",
   },
@@ -140,13 +140,13 @@ export const processSteps: StepItem[] = [
 
 export const statsData: StatItem[] = [
   {
-    value: "2,500+",
-    label: "Happy Clients",
+    value: "100+",
+    label: "Clients",
     icon: "smile",
   },
   {
-    value: "₹ 500 Cr+",
-    label: "Assets Traced & Recovered",
+    value: "₹ 10 Cr+",
+    label: "Recovered",
     icon: "coins",
   },
   {
@@ -155,8 +155,8 @@ export const statsData: StatItem[] = [
     icon: "award",
   },
   {
-    value: "15+",
-    label: "Years of Experience",
+    value: "30+",
+    label: "Years of Combined Work Experience",
     icon: "shield",
   },
 ];
@@ -165,30 +165,35 @@ export const testimonialsData: TestimonialItem[] = [
   {
     id: "1",
     quote: "Vitt Management helped me recover shares that my father had bought in the 1990s. I had almost given up hope!",
-    author: "Rajesh Mehta",
+    author: "Ashok Singhania",
     location: "Mumbai",
-    avatar: "/images/client-rajesh.jpg",
+    avatar: "/images/client-ashok.jpg",
   },
   {
     id: "2",
     quote: "As an NRI, I was worried about the process, but the team made it simple and handled everything smoothly.",
-    author: "Priya Sharma",
+    author: "Radhika Menon",
     location: "Dubai",
-    avatar: "/images/client-priya.jpg",
+    avatar: "/images/client-radhika.jpg",
   },
   {
     id: "3",
     quote: "Professional, transparent and knowledgeable. Highly recommended for IEPF and share recovery.",
     author: "Amit Verma",
     location: "Bengaluru",
-    avatar: "/images/client-amit.jpg",
   },
   {
     id: "4",
     quote: "Exceptional service! They recovered our ancestral physical shares and dematerialized them in record time without any hassle.",
     author: "Sunil Kothari",
     location: "Ahmedabad",
-    avatar: "/images/client-rajesh.jpg",
+    avatar: "/images/client-sunil.jpg",
+  },
+  {
+    id: "5",
+    quote: "My old PF balance from two previous employers was stuck due to date of exit & KYC mismatch. Vitt Management coordinated everything with the EPFO and got the complete claim settled directly into my account!",
+    author: "Vikram Malhotra",
+    location: "Gurugram",
   },
 ];
 

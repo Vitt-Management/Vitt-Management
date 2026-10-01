@@ -57,7 +57,7 @@ export default function Hero({ banners }: { banners: Banner[] }) {
 
           {/* Right Hero Image Column */}
           <div style={{ position: "relative" }} className="hero-image-col">
-            <div style={{
+            <div className="hero-slider-box" style={{
               position: "relative",
               borderRadius: "16px",
               overflow: "hidden",

@@ -128,7 +128,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
               {service.faqs.length > 0 && (
                 <div className="svc-block">
-                  <h2 className="svc-h2">Frequently asked questions</h2>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px", marginBottom: "16px" }}>
+                    <h2 className="svc-h2" style={{ margin: 0 }}>Frequently asked questions</h2>
+                    <Link href={`/faq?topic=${service.slug}`} className="svc-faq-all-link">
+                      See all FAQs &rarr;
+                    </Link>
+                  </div>
                   <div className="svc-faqs">
                     {service.faqs.map((f) => (
                       <details key={f.question} className="svc-faq">

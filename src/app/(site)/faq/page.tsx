@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getGlobalFaqs } from "@/lib/global-faqs";
+import { getFaqTopics } from "@/lib/faq-topics";
+import FaqExplorer from "@/components/faq/FaqExplorer";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | Vitt Management",
@@ -10,8 +11,18 @@ export const metadata: Metadata = {
 export const revalidate = 300;
 export const dynamic = "force-dynamic";
 
-export default async function FaqPage() {
-  const faqs = await getGlobalFaqs();
+interface FaqPageProps {
+  searchParams: Promise<{ topic?: string }>;
+}
+
+export default async function FaqPage({ searchParams }: FaqPageProps) {
+  const topics = await getFaqTopics();
+  const resolvedSearchParams = await searchParams;
+  const topicParam = resolvedSearchParams?.topic;
+
+  const validTopic = topicParam && topics.some((t) => t.key === topicParam)
+    ? topicParam
+    : topics.find((t) => t.kind === "general")?.key ?? topics[0]?.key ?? "general";
 
   return (
     <>
@@ -30,16 +41,9 @@ export default async function FaqPage() {
       </section>
 
       <section className="faq-page-section">
-        <div className="container-custom faq-page-content">
-          {faqs.length > 0 ? (
-            <div className="svc-faqs">
-              {faqs.map((faq) => (
-                <details key={faq.id} className="svc-faq">
-                  <summary>{faq.question}</summary>
-                  <p>{faq.answer}</p>
-                </details>
-              ))}
-            </div>
+        <div className="container-custom">
+          {topics.length > 0 ? (
+            <FaqExplorer topics={topics} initialTopic={validTopic} />
           ) : (
             <p className="faq-page-empty">Questions and answers will be available here shortly.</p>
           )}
