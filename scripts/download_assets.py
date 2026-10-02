@@ -2,8 +2,6 @@ import urllib.request
 import os
 
 images = {
-    # 1. Vintage magnifying glass on old papers / books
-    "service-forgotten-shares.jpg": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
     # 2. NRI / Traveler silhouette looking at airport plane window
     "service-nri.jpg": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
     # 3. Savings jar / Provident fund / Coins

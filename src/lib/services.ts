@@ -280,41 +280,6 @@ export const FALLBACK_SERVICES: Service[] = [
     ],
   },
   {
-    slug: "forgotten-shares-search",
-    title: "Old / Forgotten Shares Search",
-    short_description: "Trace your lost or forgotten investments.",
-    image_url: "/images/service-forgotten-shares.jpg",
-    tagline: "Trace shares and investments that you or your family may have forgotten about.",
-    overview:
-      "Many families have investments made decades ago that nobody remembers: shares bought by a parent, a few certificates in an old cupboard, or a company that has since changed its name or merged. These forgotten holdings can be worth recovering.\n\nWe start with whatever you have, even a single old paper or a company name, and search for where the holding stands today. Companies change names, merge and shift registrars, so tracing takes patience and knowing where to look.",
-    who_for: [
-      "You found old share certificates or papers among family belongings",
-      "A relative mentioned investing in shares but left no records",
-      "The company name on your certificate no longer exists",
-      "You have not checked on old investments in many years",
-      "You want a clear picture of what you or your family may be owed",
-    ],
-    how_we_help: [
-      { title: "Gather the clues", description: "We review the papers, names and details you have, however incomplete." },
-      { title: "Trace the company", description: "We follow name changes, mergers and registrar changes to find where the holding is now." },
-      { title: "Check the status", description: "We confirm whether the shares are held with the company, in demat, or with IEPF." },
-      { title: "Report and advise", description: "We give you a clear summary of what exists and what can be recovered." },
-      { title: "Recover", description: "If you wish, we take the case forward under the appropriate service." },
-    ],
-    documents: [
-      "Old share certificates, letters or dividend warrants",
-      "Old bank passbooks or statements showing dividend credits",
-      "Any names, folio numbers or company names you remember",
-      "PAN card and identity proof",
-      "For family holdings: proof of relationship to the original holder",
-    ],
-    faqs: [
-      { question: "What if I only remember the company name?", answer: "That can be enough to start. We search from what you have." },
-      { question: "What if the company no longer exists?", answer: "Companies are often renamed or merged rather than closed, and holdings usually carry over. We trace what happened." },
-      { question: "Will you find everything?", answer: "We cannot promise to find every holding, since it depends on how much information is available, but we will give you an honest picture of what we find." },
-    ],
-  },
-  {
     slug: "nri-investment-recovery",
     title: "NRI Investment Recovery",
     short_description: "Assistance for NRIs to recover Indian investments.",

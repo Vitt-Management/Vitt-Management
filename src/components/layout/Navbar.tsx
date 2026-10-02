@@ -60,17 +60,9 @@ export default function Navbar({
 
   return (
     <header className="site-header">
-      {/* Top Bar with Partner Program on Left, Phone & Email on Right */}
+      {/* Top Bar with Phone & Email */}
       <div className="top-bar">
         <div className="container-custom top-bar-inner">
-          <Link
-            href="/partner-with-us"
-            className="top-bar-partner"
-            aria-label="Partner with us"
-          >
-            <span>Partner with Us</span>
-          </Link>
-
           <div className="top-bar-right">
             <a href={phoneHref} className="top-bar-link" aria-label={`Call us at ${phone}`}>
               <Phone size={13} className="top-bar-icon" />
@@ -165,6 +157,9 @@ export default function Navbar({
           <Link href="/faq" className={`nav-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             FAQs
           </Link>
+          <Link href="/partner-with-us" className={`nav-link${onPartner ? " active" : ""}`} {...cur(onPartner)}>
+            Partner with Us
+          </Link>
           <div className="nav-contact-wrapper">
             <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
               Contact Us
@@ -244,9 +239,8 @@ export default function Navbar({
           <Link href="/faq" onClick={closeAll} className={`m-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             <span>FAQs</span>
           </Link>
-          <Link href="/partner-with-us" onClick={closeAll} className={`m-link${onPartner ? " active" : ""}`} {...cur(onPartner)} style={{ color: "var(--gold-dark)", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/partner-with-us" onClick={closeAll} className={`m-link${onPartner ? " active" : ""}`} {...cur(onPartner)}>
             <span>Partner with Us</span>
-            <span style={{ fontSize: "0.72rem", background: "var(--gold-pale)", color: "var(--gold-dark)", border: "1px solid var(--gold-border)", padding: "2px 8px", borderRadius: "9999px" }}>Refer &amp; Earn</span>
           </Link>
           <Link href="/contact" onClick={closeAll} className={`m-link${onContact ? " active" : ""}`} {...cur(onContact)}>
             <span>Contact Us</span>

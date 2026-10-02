@@ -61,12 +61,6 @@ export const servicesData: ServiceItem[] = [
     image: "/images/service-dividends.jpg",
   },
   {
-    id: "forgotten-shares",
-    title: "Old / Forgotten Shares Search",
-    description: "Trace your lost or forgotten investments.",
-    image: "/images/service-forgotten-shares.jpg",
-  },
-  {
     id: "nri-recovery",
     title: "NRI Investment Recovery",
     description: "Assistance for NRIs to recover Indian investments.",
@@ -214,7 +208,6 @@ export const serviceOptions = [
   { value: "transmission", label: "Transmission of Shares" },
   { value: "duplicate", label: "Lost / Duplicate Share Certificates" },
   { value: "dividends", label: "Unpaid / Unclaimed Dividends" },
-  { value: "forgotten", label: "Old / Forgotten Shares" },
   { value: "nri", label: "NRI Investment Recovery" },
   { value: "pf", label: "PF Recovery" },
   { value: "other", label: "Other" },
