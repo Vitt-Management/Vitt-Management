@@ -11,15 +11,25 @@ export default async function AdminBlogsPage() {
 
   const publishedCount = blogs.filter((b) => b.is_published).length;
   const draftCount = blogs.filter((b) => !b.is_published).length;
-  const featuredCount = blogs.filter((b) => b.is_featured).length;
 
   return (
-    <div>
+    <div style={{ width: "100%", minWidth: 0, boxSizing: "border-box" }}>
       {/* Top Header */}
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "24px" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "16px",
+          marginBottom: "24px",
+        }}
+      >
         <div>
-          <h1 className="admin-title">Blog Posts</h1>
-          <p className="admin-sub" style={{ marginBottom: 0 }}>
+          <h1 className="admin-title" style={{ fontSize: "1.8rem", margin: 0 }}>
+            Blog Posts
+          </h1>
+          <p className="admin-sub" style={{ margin: "4px 0 0", fontSize: "0.95rem" }}>
             Manage educational articles, legal guides, and IEPF recovery resources.
           </p>
         </div>
@@ -29,44 +39,51 @@ export default async function AdminBlogsPage() {
       </div>
 
       {/* Metrics Row */}
-      <div className="admin-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", marginBottom: "24px" }}>
-        <div className="admin-card" style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <div style={{ padding: "12px", background: "rgba(184, 134, 70, 0.12)", borderRadius: "10px", color: "var(--gold-primary)" }}>
-            <Newspaper size={24} />
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+          gap: "14px",
+          marginBottom: "24px",
+        }}
+      >
+        <div className="admin-card" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "16px 18px" }}>
+          <div style={{ padding: "10px", background: "rgba(184, 134, 70, 0.12)", borderRadius: "8px", color: "var(--gold-primary)" }}>
+            <Newspaper size={22} />
           </div>
           <div>
-            <div className="stat-num">{blogs.length}</div>
-            <div className="stat-label">Total Articles</div>
+            <div className="stat-num" style={{ fontSize: "1.8rem" }}>{blogs.length}</div>
+            <div className="stat-label" style={{ fontSize: "0.85rem" }}>Total Articles</div>
           </div>
         </div>
 
-        <div className="admin-card" style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <div style={{ padding: "12px", background: "#e8f5e9", borderRadius: "10px", color: "#2e7d32" }}>
-            <CheckCircle size={24} />
+        <div className="admin-card" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "16px 18px" }}>
+          <div style={{ padding: "10px", background: "#e8f5e9", borderRadius: "8px", color: "#2e7d32" }}>
+            <CheckCircle size={22} />
           </div>
           <div>
-            <div className="stat-num">{publishedCount}</div>
-            <div className="stat-label">Published Live</div>
+            <div className="stat-num" style={{ fontSize: "1.8rem" }}>{publishedCount}</div>
+            <div className="stat-label" style={{ fontSize: "0.85rem" }}>Published Live</div>
           </div>
         </div>
 
-        <div className="admin-card" style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <div style={{ padding: "12px", background: "#f5f5f5", borderRadius: "10px", color: "#666" }}>
-            <FileText size={24} />
+        <div className="admin-card" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "16px 18px" }}>
+          <div style={{ padding: "10px", background: "#f5f5f5", borderRadius: "8px", color: "#666" }}>
+            <FileText size={22} />
           </div>
           <div>
-            <div className="stat-num">{draftCount}</div>
-            <div className="stat-label">Drafts</div>
+            <div className="stat-num" style={{ fontSize: "1.8rem" }}>{draftCount}</div>
+            <div className="stat-label" style={{ fontSize: "0.85rem" }}>Drafts</div>
           </div>
         </div>
 
-        <div className="admin-card" style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <div style={{ padding: "12px", background: "#fff8e1", borderRadius: "10px", color: "#b78103" }}>
-            <FolderKanban size={24} />
+        <div className="admin-card" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "16px 18px" }}>
+          <div style={{ padding: "10px", background: "#fff8e1", borderRadius: "8px", color: "#b78103" }}>
+            <FolderKanban size={22} />
           </div>
           <div>
-            <div className="stat-num">{BLOG_CATEGORIES.length}</div>
-            <div className="stat-label">Categories</div>
+            <div className="stat-num" style={{ fontSize: "1.8rem" }}>{BLOG_CATEGORIES.length}</div>
+            <div className="stat-label" style={{ fontSize: "0.85rem" }}>Categories</div>
           </div>
         </div>
       </div>
