@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Images, Briefcase, Inbox, Phone, CircleHelp, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Images, Briefcase, Inbox, Phone, CircleHelp, ExternalLink, Newspaper } from "lucide-react";
 
 const links = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard, exact: true },
+  { href: "/admin/blogs", label: "Blog Posts", icon: Newspaper },
   { href: "/admin/banners", label: "Banners", icon: Images },
   { href: "/admin/services", label: "Services", icon: Briefcase },
   { href: "/admin/faq", label: "Global FAQs", icon: CircleHelp },

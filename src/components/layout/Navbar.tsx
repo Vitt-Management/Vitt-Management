@@ -40,6 +40,7 @@ export default function Navbar({
   const onHome = pathname === "/";
   const onServices = pathname.startsWith("/services");
   const onAbout = pathname === "/about";
+  const onBlog = pathname.startsWith("/blog");
   const onFaq = pathname === "/faq";
   const onContact = pathname === "/contact";
   const servicesPerColumn = Math.ceil(services.length / 2);
@@ -144,23 +145,20 @@ export default function Navbar({
           <Link href="/about" className={`nav-link${onAbout ? " active" : ""}`} {...cur(onAbout)}>
             About Us
           </Link>
+          <Link href="/blog" className={`nav-link${onBlog ? " active" : ""}`} {...cur(onBlog)}>
+            Blogs
+          </Link>
           <Link href="/faq" className={`nav-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             FAQs
           </Link>
-          <div className="nav-contact-wrapper">
-            <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
-              Contact Us
-            </Link>
-            <a href={phoneHref} className="nav-call-sub" aria-label={`Call Now at ${phone}`}>
-              <Phone size={11} />
-              <span>Call Now</span>
-            </a>
-          </div>
+          <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
+            Contact Us
+          </Link>
         </nav>
 
         {/* Right CTA Area */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <Link href="/contact" className="btn-primary-gold nav-cta" style={{ fontSize: "0.95rem", padding: "11px 22px" }} onClick={closeAll}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
+          <Link href="/contact" className="btn-primary-gold nav-cta" style={{ fontSize: "0.95rem", padding: "10px 20px" }} onClick={closeAll}>
             Get a Free Assessment
           </Link>
 
@@ -219,6 +217,9 @@ export default function Navbar({
           <Link href="/#how-it-works" onClick={closeAll} className="m-link"><span>How It Works</span></Link>
           <Link href="/about" onClick={closeAll} className={`m-link${onAbout ? " active" : ""}`} {...cur(onAbout)}>
             <span>About Us</span>
+          </Link>
+          <Link href="/blog" onClick={closeAll} className={`m-link${onBlog ? " active" : ""}`} {...cur(onBlog)}>
+            <span>Blogs</span>
           </Link>
           <Link href="/faq" onClick={closeAll} className={`m-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             <span>FAQs</span>

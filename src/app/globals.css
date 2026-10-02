@@ -979,7 +979,7 @@ img {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .nav-link {
@@ -1174,12 +1174,12 @@ img {
   height: 92px;
 }
 
-/* Wide links need room: switch to the phone menu below 1160px */
-@media (max-width: 1240px) {
-  .desktop-nav { gap: 22px; }
-  .nav-link { font-size: 0.96rem; }
+/* Wide links need room: switch to the phone menu below 1180px */
+@media (max-width: 1280px) {
+  .desktop-nav { gap: 16px; }
+  .nav-link { font-size: 0.94rem; }
 }
-@media (max-width: 1160px) {
+@media (max-width: 1180px) {
   .desktop-nav {
     display: none !important;
   }

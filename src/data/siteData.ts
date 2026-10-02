@@ -200,6 +200,7 @@ export const testimonialsData: TestimonialItem[] = [
 export const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
+  { name: "Blogs", href: "/blog" },
   { name: "FAQs", href: "/faq" },
   { name: "Our Services", href: "/#services" },
   { name: "How It Works", href: "/#how-it-works" },
