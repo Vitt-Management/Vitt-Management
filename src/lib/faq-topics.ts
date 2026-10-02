@@ -31,34 +31,40 @@ function cleanFaqs(value: unknown): FaqItem[] {
 
 // Order: General, then each active service (website order) that has FAQs, then Fees/Documents/Privacy.
 export async function getFaqTopics(): Promise<FaqTopic[]> {
-  const db = createAdminClient();
-  const [globalRes, serviceRes] = await Promise.all([
-    db
-      .from("global_faqs")
-      .select("question, answer, category")
-      .eq("is_active", true)
-      .order("sort_order", { ascending: true })
-      .order("created_at", { ascending: true }),
-    db
-      .from("services")
-      .select("slug, title, faqs")
-      .eq("is_active", true)
-      .order("sort_order", { ascending: true }),
-  ]);
-  if (globalRes.error) throw new Error(`Could not load global FAQs: ${globalRes.error.message}`);
-  if (serviceRes.error) throw new Error(`Could not load service FAQs: ${serviceRes.error.message}`);
+  try {
+    const db = createAdminClient();
+    const [globalRes, serviceRes] = await Promise.all([
+      db
+        .from("global_faqs")
+        .select("question, answer, category")
+        .eq("is_active", true)
+        .order("sort_order", { ascending: true })
+        .order("created_at", { ascending: true }),
+      db
+        .from("services")
+        .select("slug, title, faqs")
+        .eq("is_active", true)
+        .order("sort_order", { ascending: true }),
+    ]);
 
-  const globalByCategory = (category: GlobalFaqCategory): FaqTopic[] => {
-    const faqs = (globalRes.data ?? [])
-      .filter((f) => f.category === category)
-      .map((f) => ({ question: f.question as string, answer: f.answer as string }));
-    return faqs.length ? [{ key: category, kind: category, label: GLOBAL_LABELS[category], faqs }] : [];
-  };
+    if (globalRes.error) console.warn(`Could not load global FAQs: ${globalRes.error.message}`);
+    if (serviceRes.error) console.warn(`Could not load service FAQs: ${serviceRes.error.message}`);
 
-  const services: FaqTopic[] = (serviceRes.data ?? []).flatMap((s) => {
-    const faqs = cleanFaqs(s.faqs);
-    return faqs.length ? [{ key: s.slug as string, kind: "service" as const, label: s.title as string, faqs }] : [];
-  });
+    const globalByCategory = (category: GlobalFaqCategory): FaqTopic[] => {
+      const faqs = (globalRes.data ?? [])
+        .filter((f) => f.category === category)
+        .map((f) => ({ question: f.question as string, answer: f.answer as string }));
+      return faqs.length ? [{ key: category, kind: category, label: GLOBAL_LABELS[category], faqs }] : [];
+    };
 
-  return [...globalByCategory("general"), ...services, ...globalByCategory("fees")];
+    const services: FaqTopic[] = (serviceRes.data ?? []).flatMap((s) => {
+      const faqs = cleanFaqs(s.faqs);
+      return faqs.length ? [{ key: s.slug as string, kind: "service" as const, label: s.title as string, faqs }] : [];
+    });
+
+    return [...globalByCategory("general"), ...services, ...globalByCategory("fees")];
+  } catch (err) {
+    console.warn("Failed to load FAQ topics:", err);
+    return [];
+  }
 }

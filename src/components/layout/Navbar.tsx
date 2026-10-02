@@ -42,9 +42,15 @@ export default function Navbar({
   const onAbout = pathname === "/about";
   const onBlog = pathname.startsWith("/blog");
   const onFaq = pathname === "/faq";
+  const onPartner = pathname === "/partner-with-us";
   const onContact = pathname === "/contact";
-  const servicesPerColumn = Math.ceil(services.length / 2);
-  const serviceColumns = [services.slice(0, servicesPerColumn), services.slice(servicesPerColumn)];
+  const numColumns = 3;
+  const servicesPerColumn = Math.ceil(services.length / numColumns);
+  const serviceColumns = [
+    services.slice(0, servicesPerColumn),
+    services.slice(servicesPerColumn, servicesPerColumn * 2),
+    services.slice(servicesPerColumn * 2),
+  ].filter((col) => col.length > 0);
   const cur = (active: boolean) => (active ? ({ "aria-current": "page" } as const) : {});
 
   const closeAll = () => {
@@ -54,10 +60,18 @@ export default function Navbar({
 
   return (
     <header className="site-header">
-      {/* Top Bar with Phone & Email */}
+      {/* Top Bar with Partner Program on Left, Phone & Email on Right */}
       <div className="top-bar">
         <div className="container-custom top-bar-inner">
-          <div className="top-bar-left">
+          <Link
+            href="/partner-with-us"
+            className="top-bar-partner"
+            aria-label="Partner with us"
+          >
+            <span>Partner with Us</span>
+          </Link>
+
+          <div className="top-bar-right">
             <a href={phoneHref} className="top-bar-link" aria-label={`Call us at ${phone}`}>
               <Phone size={13} className="top-bar-icon" />
               <span>{phone}</span>
@@ -129,7 +143,7 @@ export default function Navbar({
                             onClick={closeAll}
                             {...cur(active)}
                           >
-                            <ServiceThumb src={svc.image_url} size={40} />
+                            <ServiceThumb src={svc.image_url} size={36} />
                             <span>{svc.title}</span>
                           </Link>
                         );
@@ -151,15 +165,21 @@ export default function Navbar({
           <Link href="/faq" className={`nav-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             FAQs
           </Link>
-          <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
-            Contact Us
-          </Link>
+          <div className="nav-contact-wrapper">
+            <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
+              Contact Us
+            </Link>
+            <a href={phoneHref} className="nav-call-sub" aria-label={`Call us at ${phone}`}>
+              <Phone size={10} />
+              <span>Call Now</span>
+            </a>
+          </div>
         </nav>
 
         {/* Right CTA Area */}
         <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
-          <Link href="/contact" className="btn-primary-gold nav-cta" style={{ fontSize: "0.95rem", padding: "10px 20px" }} onClick={closeAll}>
-            Get a Free Assessment
+          <Link href="/check-your-shares" className="btn-primary-gold nav-cta" onClick={closeAll}>
+            Check your Shares
           </Link>
 
           {/* Mobile Hamburger Toggle */}
@@ -224,6 +244,10 @@ export default function Navbar({
           <Link href="/faq" onClick={closeAll} className={`m-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             <span>FAQs</span>
           </Link>
+          <Link href="/partner-with-us" onClick={closeAll} className={`m-link${onPartner ? " active" : ""}`} {...cur(onPartner)} style={{ color: "var(--gold-dark)", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span>Partner with Us</span>
+            <span style={{ fontSize: "0.72rem", background: "var(--gold-pale)", color: "var(--gold-dark)", border: "1px solid var(--gold-border)", padding: "2px 8px", borderRadius: "9999px" }}>Refer &amp; Earn</span>
+          </Link>
           <Link href="/contact" onClick={closeAll} className={`m-link${onContact ? " active" : ""}`} {...cur(onContact)}>
             <span>Contact Us</span>
           </Link>
@@ -232,8 +256,8 @@ export default function Navbar({
             <span>Call Now ({phone})</span>
           </a>
 
-          <Link href="/contact" onClick={closeAll} className="btn-primary-gold" style={{ marginTop: "14px", padding: "14px 24px", fontSize: "1rem" }}>
-            Book a Free Consultation
+          <Link href="/check-your-shares" onClick={closeAll} className="btn-primary-gold" style={{ marginTop: "14px", padding: "14px 24px", fontSize: "1rem" }}>
+            Check your Shares
           </Link>
         </nav>
       )}

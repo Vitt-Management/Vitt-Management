@@ -318,7 +318,7 @@ const services = [
   {
     slug: "other-financial-asset-assistance",
     title: "Other Financial Asset Assistance",
-    short_description: "Mutual funds, insurance, bank deposits, bonds and more.",
+    short_description: "NPS, PPF, Post Office Savings and more.",
     image_url: "/images/service-other-assets.jpg",
     tagline: "Help with mutual funds, insurance, bank deposits, bonds and other assets that have gone unclaimed.",
     overview:

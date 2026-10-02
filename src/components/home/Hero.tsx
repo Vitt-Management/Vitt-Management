@@ -17,17 +17,15 @@ export default function Hero({ banners }: { banners: Banner[] }) {
 
             <h1 style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(2.4rem, 4vw, 3.5rem)",
+              fontSize: "clamp(2.5rem, 4.2vw, 3.8rem)",
               fontWeight: 700,
               lineHeight: 1.15,
               color: "#131f18",
               letterSpacing: "-0.025em",
               marginBottom: "20px"
             }}>
-              Your Forgotten <br />
-              <span style={{ color: "#b88646" }}>Investments</span> <br />
-              Deserve a Second <br />
-              Chance.
+              Recovering Wealth. <br />
+              <span style={{ color: "#b88646" }}>Restoring Trust.</span>
             </h1>
 
             <p style={{
@@ -43,14 +41,14 @@ export default function Hero({ banners }: { banners: Banner[] }) {
             {/* Action Buttons */}
             <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "0", flexWrap: "wrap" }}>
               <Link href="/contact" className="btn-primary-gold" style={{ fontSize: "0.96rem", padding: "13px 28px" }}>
-                Check Your Investments
+                Start Your Recovery
               </Link>
               
               <Link href="/contact" 
                 className="btn-outline-white" 
                 style={{ fontSize: "0.96rem", padding: "13px 26px" }}
               >
-                Contact Now
+                Check Your Investments
               </Link>
             </div>
           </div>

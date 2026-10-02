@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import TrustBar from "@/components/home/TrustBar";
+import RecoveryHurdles from "@/components/home/RecoveryHurdles";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import ExpertCta from "@/components/home/ExpertCta";
 import ProcessStepper from "@/components/home/ProcessStepper";
@@ -20,6 +21,7 @@ export default async function HomePage() {
     <>
       <Hero banners={banners} />
       <TrustBar />
+      <RecoveryHurdles />
       <ServicesGrid services={services} />
       <ExpertCta />
       <ProcessStepper />

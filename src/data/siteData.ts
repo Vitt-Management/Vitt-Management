@@ -81,7 +81,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "other-financial-assets",
     title: "Other Financial Asset Assistance",
-    description: "Mutual funds, insurance, bank deposits, bonds and more.",
+    description: "NPS, PPF, Post Office Savings and more.",
     image: "/images/service-other-assets.jpg",
   },
   {
@@ -200,6 +200,7 @@ export const testimonialsData: TestimonialItem[] = [
 export const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
+  { name: "Partner with Us", href: "/partner-with-us" },
   { name: "Blogs", href: "/blog" },
   { name: "FAQs", href: "/faq" },
   { name: "Our Services", href: "/#services" },

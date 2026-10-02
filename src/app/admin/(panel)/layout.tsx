@@ -11,7 +11,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
         <div className="brand">
           <Image src="/images/final_logo.png" alt="" width={40} height={34} style={{ height: "34px", width: "auto", background: "#fff", borderRadius: "6px", padding: "3px 5px" }} />
           <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.3rem" }}>
-            <span style={{ color: "#0b3d7b" }}>VITT</span> <span style={{ color: "#b88646" }}>Admin</span>
+            <span style={{ color: "#003366" }}>VITT</span> <span style={{ color: "#b88646" }}>Admin</span>
           </span>
         </div>
         <AdminNav />

@@ -13,13 +13,21 @@ export interface GlobalFaq {
 }
 
 export async function getGlobalFaqs(): Promise<GlobalFaq[]> {
-  const { data, error } = await createAdminClient()
-    .from("global_faqs")
-    .select("id, question, answer, sort_order, is_active, category")
-    .eq("is_active", true)
-    .order("sort_order", { ascending: true })
-    .order("created_at", { ascending: true });
+  try {
+    const { data, error } = await createAdminClient()
+      .from("global_faqs")
+      .select("id, question, answer, sort_order, is_active, category")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true })
+      .order("created_at", { ascending: true });
 
-  if (error) throw new Error(`Could not load global FAQs: ${error.message}`);
-  return (data ?? []) as GlobalFaq[];
+    if (error) {
+      console.warn(`Could not load global FAQs: ${error.message}`);
+      return [];
+    }
+    return (data ?? []) as GlobalFaq[];
+  } catch (err) {
+    console.warn("Failed to load global FAQs:", err);
+    return [];
+  }
 }

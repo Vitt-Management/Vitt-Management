@@ -23,7 +23,7 @@ export default function ContactBanner({ heading, subheading }: { heading: string
           Contact Us
         </p>
         <h1 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 5vw, 3.4rem)", fontWeight: 700, lineHeight: 1.15, marginBottom: "10px", maxWidth: "720px" }}>
-          <span style={{ color: "#0b3d7b" }}>VITT</span>{" "}
+          <span style={{ color: "#003366" }}>VITT</span>{" "}
           <span style={{ color: "#b88646" }}>MANAGEMENT</span>
         </h1>
         <p className="page-brand-attribution">A brand of VittEdge Global Advisory LLP</p>
