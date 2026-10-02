@@ -207,12 +207,19 @@ img {
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
   position: relative;
+  cursor: pointer;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
   border-color: var(--gold-primary);
   box-shadow: var(--shadow-hover);
+}
+
+.service-card-overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .service-card-img-wrapper {
@@ -250,6 +257,10 @@ img {
   margin-bottom: 8px;
 }
 
+.service-card:hover .service-card-title {
+  color: var(--gold-dark);
+}
+
 .service-card-desc {
   font-size: 0.96rem;
   color: var(--text-muted);
@@ -259,6 +270,8 @@ img {
 }
 
 .service-card-actions {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

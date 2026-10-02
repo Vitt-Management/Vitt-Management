@@ -6,6 +6,11 @@ import type { ServiceSummary } from "@/lib/services";
 export default function ServiceCard({ service }: { service: ServiceSummary }) {
   return (
     <div className="service-card">
+      <Link
+        href={`/services/${service.slug}`}
+        className="service-card-overlay-link"
+        aria-label={`View details for ${service.title}`}
+      />
       {service.image_url && (
         <div className="service-card-img-wrapper">
           <Image

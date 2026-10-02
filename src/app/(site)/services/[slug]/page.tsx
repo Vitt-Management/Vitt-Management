@@ -142,9 +142,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                       </details>
                     ))}
                   </div>
-                  <p className="svc-disclaimer">
-                    This page is general guidance, not legal or financial advice. Requirements differ between companies and cases, and we cannot guarantee any outcome.
-                  </p>
                 </div>
               )}
             </div>
