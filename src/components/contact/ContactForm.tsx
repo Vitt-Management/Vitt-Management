@@ -113,7 +113,7 @@ export default function ContactForm() {
                 id="cf-phone"
                 name="phone"
                 type="tel"
-                placeholder="+91 98765 43210"
+                placeholder="+91 92752 31114"
                 className="form-input contact-input"
                 required
                 maxLength={30}

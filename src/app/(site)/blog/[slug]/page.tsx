@@ -165,7 +165,7 @@ export default async function SingleBlogPage({ params }: PageProps) {
             <div>
               <h1
                 style={{
-                  fontFamily: "var(--font-serif, 'Playfair Display', Georgia, serif)",
+                  fontFamily: "var(--font-serif)",
                   fontSize: "clamp(1.9rem, 3.8vw, 2.8rem)",
                   fontWeight: 800,
                   color: "#ffffff",

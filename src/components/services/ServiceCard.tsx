@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ServiceSummary } from "@/lib/services";
+import SafeServiceImage from "@/components/services/SafeServiceImage";
 
 // One card design, used on the home page grid and in "Other services" on each service page.
 export default function ServiceCard({ service }: { service: ServiceSummary }) {
@@ -13,7 +13,7 @@ export default function ServiceCard({ service }: { service: ServiceSummary }) {
       />
       {service.image_url && (
         <div className="service-card-img-wrapper">
-          <Image
+          <SafeServiceImage
             src={service.image_url}
             alt={service.title}
             fill

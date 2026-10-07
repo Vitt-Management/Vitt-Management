@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, Phone, Mail } from "lucide-react";
 import type { SiteContact } from "@/lib/contact-shared";
+import SafeServiceImage from "@/components/services/SafeServiceImage";
 
 export interface NavService {
   slug: string;
@@ -16,7 +17,7 @@ export interface NavService {
 function ServiceThumb({ src, size }: { src: string | null; size: number }) {
   return (
     <span className="nav-svc-thumb" style={{ width: size, height: size }} aria-hidden="true">
-      {src && <Image src={src} alt="" fill sizes={`${size}px`} style={{ objectFit: "cover" }} />}
+      {src && <SafeServiceImage src={src} alt="" fill sizes={`${size}px`} style={{ objectFit: "cover" }} />}
     </span>
   );
 }
@@ -35,7 +36,7 @@ export default function Navbar({
 
   const phone = contact?.phone || "+91 92752 31114";
   const phoneHref = contact?.phoneHref || "tel:+919275231114";
-  const email = contact?.email || "info@vittmanagement.in";
+  const email = contact?.email || "tara.juneja@vittmanagement.in";
 
   const onHome = pathname === "/";
   const onServices = pathname.startsWith("/services");
@@ -173,8 +174,8 @@ export default function Navbar({
 
         {/* Right CTA Area */}
         <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
-          <Link href="/check-your-shares" className="btn-primary-gold nav-cta" onClick={closeAll}>
-            Check your Shares
+          <Link href="/contact" className="btn-primary-gold nav-cta" onClick={closeAll}>
+            Start Your Recovery
           </Link>
 
           {/* Mobile Hamburger Toggle */}
@@ -250,8 +251,8 @@ export default function Navbar({
             <span>Call Now ({phone})</span>
           </a>
 
-          <Link href="/check-your-shares" onClick={closeAll} className="btn-primary-gold" style={{ marginTop: "14px", padding: "14px 24px", fontSize: "1rem" }}>
-            Check your Shares
+          <Link href="/contact" onClick={closeAll} className="btn-primary-gold" style={{ marginTop: "14px", padding: "14px 24px", fontSize: "1rem" }}>
+            Start Your Recovery
           </Link>
         </nav>
       )}

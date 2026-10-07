@@ -24,7 +24,9 @@ export interface TestimonialItem {
 }
 
 export interface StatItem {
-  value: string;
+  value: number;
+  prefix?: string;
+  suffix?: string;
   label: string;
   icon: string;
 }
@@ -32,7 +34,7 @@ export interface StatItem {
 export const servicesData: ServiceItem[] = [
   {
     id: "iepf-recovery",
-    title: "IEPF Share & Dividend Recovery",
+    title: "IEPF Claim of Shares and Dividends",
     description: "Recover shares and unpaid dividends from IEPF.",
     image: "/images/service-iepf.jpg",
   },
@@ -45,7 +47,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "transmission-shares",
     title: "Transmission of Shares",
-    description: "Assistance for inherited shares after a shareholder's demise.",
+    description: "Transferring shares of a deceased shareholder to the rightful legal heir.",
     image: "/images/service-transmission.jpg",
   },
   {
@@ -74,8 +76,8 @@ export const servicesData: ServiceItem[] = [
   },
   {
     id: "other-financial-assets",
-    title: "Other Financial Asset Assistance",
-    description: "NPS, PPF, Post Office Savings and more.",
+    title: "Other Financial Assets Recovery Assistance",
+    description: "Trace and recover unclaimed bank deposits, insurance, mutual funds, bonds and other financial assets.",
     image: "/images/service-other-assets.jpg",
   },
   {
@@ -134,22 +136,27 @@ export const processSteps: StepItem[] = [
 
 export const statsData: StatItem[] = [
   {
-    value: "100+",
+    value: 100,
+    suffix: "+",
     label: "Clients",
     icon: "smile",
   },
   {
-    value: "₹ 10 Cr+",
+    value: 10,
+    prefix: "₹ ",
+    suffix: " Cr+",
     label: "Recovered",
     icon: "coins",
   },
   {
-    value: "99%",
+    value: 99,
+    suffix: "%",
     label: "Client Satisfaction",
     icon: "award",
   },
   {
-    value: "30+",
+    value: 30,
+    suffix: "+",
     label: "Years of Combined Work Experience",
     icon: "shield",
   },
@@ -203,7 +210,7 @@ export const quickLinks = [
 ];
 
 export const serviceOptions = [
-  { value: "iepf", label: "IEPF Share & Dividend Recovery" },
+  { value: "iepf", label: "IEPF Claim of Shares and Dividends" },
   { value: "demat", label: "Physical Shares to Demat" },
   { value: "transmission", label: "Transmission of Shares" },
   { value: "duplicate", label: "Lost / Duplicate Share Certificates" },

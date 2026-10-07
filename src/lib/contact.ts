@@ -6,11 +6,14 @@ import type { SiteContact, SiteSettingsRow } from "@/lib/contact-shared";
 const SETTINGS_COLUMNS =
   "phone, whatsapp_number, whatsapp_message, email, address, working_hours, map_query, contact_heading, contact_subheading";
 
+const PRIMARY_PHONE = "+91 92752 31114";
+const PRIMARY_WHATSAPP_NUMBER = "919275231114";
+
 const FALLBACK_SITE_SETTINGS: SiteSettingsRow = {
-  phone: "+91 98765 43210",
-  whatsapp_number: "919876543210",
+  phone: PRIMARY_PHONE,
+  whatsapp_number: PRIMARY_WHATSAPP_NUMBER,
   whatsapp_message: "Hello Vitt Management, I would like to know more about recovering my investments.",
-  email: "info@vittmanagement.in",
+  email: "tara.juneja@vittmanagement.in",
   address: "Mumbai, India",
   working_hours: "Mon-Sat, 9 AM - 7 PM",
   map_query: "Mumbai, India",
@@ -25,7 +28,14 @@ export async function getSiteSettingsRow(): Promise<SiteSettingsRow> {
       if (error) console.warn("Could not load site settings from Supabase, using fallback:", error.message);
       return FALLBACK_SITE_SETTINGS;
     }
-    return data as SiteSettingsRow;
+    const settings = data as SiteSettingsRow;
+    // Replace the original placeholder while preserving any number configured later in admin.
+    if (settings.phone === "+91 98765 43210") settings.phone = PRIMARY_PHONE;
+    if (settings.whatsapp_number === "919876543210") settings.whatsapp_number = PRIMARY_WHATSAPP_NUMBER;
+    if (settings.email === "info@vittmanagement.in" || settings.email === "komal.goswami@vittmanagement.in") {
+      settings.email = "tara.juneja@vittmanagement.in";
+    }
+    return settings;
   } catch (err) {
     console.warn("Failed to fetch site settings, using fallback:", err);
     return FALLBACK_SITE_SETTINGS;

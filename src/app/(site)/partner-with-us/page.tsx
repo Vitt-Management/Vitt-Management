@@ -24,7 +24,7 @@ import { getSiteContact } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "Partner with Us | Make Your Network Into Your Passive Income | Vitt Management",
   description:
-    "Join the Vitt Management Partner Program. Refer clients with stuck shares, IEPF claims, or physical demat issues. We handle all legal & recovery work — you earn referral commissions.",
+    "Join the Vitt Management Partner Program. Refer clients with stuck shares, IEPF claims, or physical demat issues. We handle documentary coordination and recovery support, while legal work remains with qualified legal professionals.",
 };
 
 const benefits = [
@@ -35,8 +35,8 @@ const benefits = [
   },
   {
     icon: Scale,
-    title: "Zero Legal & Recovery Hassle",
-    text: "We take care of all documentation, IEPF filings, RTA correspondence, court probate, and government procedures end-to-end.",
+    title: "Documentary & Recovery Support",
+    text: "We coordinate document collection, IEPF and RTA paperwork, government-procedure support, and case updates. Any legal work is handled solely by qualified legal professionals.",
   },
   {
     icon: Handshake,
@@ -79,7 +79,7 @@ const targetPartners = [
   {
     icon: Scale,
     role: "Lawyers & Legal Practitioners",
-    desc: "Partner with us for succession certificates, legal heirship disputes, probate executions, and estate transmission cases.",
+    desc: "Partner with us when a case needs legal advice, legal drafting, succession certificates, probate, legal-heirship work, or estate transmission support.",
   },
   {
     icon: Users,
@@ -101,8 +101,8 @@ const steps = [
   },
   {
     num: "03",
-    title: "We Handle All Legal Work",
-    desc: "Our recovery team manages RTA liaisons, IEPF documentation, legal filings, and follow-ups with authorities.",
+    title: "We Handle Documentary Work",
+    desc: "Our recovery team coordinates document collection, RTA liaisons, IEPF paperwork, and follow-ups with authorities. Legal work and legal filings are handled solely by qualified legal professionals.",
   },
   {
     num: "04",
@@ -117,8 +117,8 @@ const partnerFaqs = [
     a: "We offer attractive, tiered referral commissions based on the case type and recovered asset valuation. Our Partner Manager will share the detailed agreement and commission slabs upon registration.",
   },
   {
-    q: "Do I have to do any paperwork, legal filings, or client follow-up?",
-    a: "No. Vitt Management handles 100% of the legal, documentation, RTA, and IEPF recovery procedures. Your role is solely to make the initial client introduction.",
+    q: "Do I have to do the documentary work or client follow-up?",
+    a: "No. Vitt Management coordinates the documentary work, RTA communication, IEPF paperwork and case updates. Any legal advice, legal drafting or legal filing is handled solely by the client's qualified legal professional.",
   },
   {
     q: "What types of cases can I refer?",
@@ -190,8 +190,9 @@ export default async function PartnerWithUsPage() {
               marginBottom: "36px",
             }}
           >
-            Just Refer clients who are facing difficulties in recovering their wealth and leave the rest to us. We do
-            all the legal &amp; recovery work — you earn a referral commission on every successful case.
+            Just refer clients who are facing difficulties in recovering their wealth and leave the documentary
+            coordination and recovery support to us. Any legal work is handled solely by qualified legal professionals,
+            while you earn a referral commission on every successful case.
           </p>
 
           {/* CTA Buttons */}
@@ -236,7 +237,7 @@ export default async function PartnerWithUsPage() {
               <div style={{ color: "var(--gold-light)", fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: 700 }}>
                 End-to-End
               </div>
-              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Full legal &amp; RTA processing by Vitt</div>
+              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Documentary &amp; RTA coordination by Vitt</div>
             </div>
             <div>
               <div style={{ color: "var(--gold-light)", fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: 700 }}>
@@ -509,7 +510,7 @@ export default async function PartnerWithUsPage() {
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
                   {[
                     "Standardized Partner Referral Agreement with clear commission percentages",
-                    "Direct liaison with dedicated Claim Specialists & Legal Associates",
+                    "Direct liaison with dedicated Claim Specialists and documentary coordinators",
                     "Zero liability or operational friction on your end",
                     "Free preliminary folio searches & claim viability audits for your clients",
                     "Regular email/WhatsApp case progress reports",

@@ -90,7 +90,7 @@ export const FALLBACK_SERVICES: Service[] = [
   },
   {
     slug: "iepf-share-dividend-recovery",
-    title: "IEPF Share & Dividend Recovery",
+    title: "IEPF Claim of Shares and Dividends",
     short_description: "Recover shares and unpaid dividends from IEPF.",
     image_url: "/images/service-iepf.jpg",
     tagline: "Get back shares and dividends that were transferred to the Investor Education and Protection Fund (IEPF).",
@@ -167,7 +167,7 @@ export const FALLBACK_SERVICES: Service[] = [
   {
     slug: "transmission-of-shares",
     title: "Transmission of Shares",
-    short_description: "Assistance for inherited shares after a shareholder's demise.",
+    short_description: "Transferring shares of a deceased shareholder to the rightful legal heir.",
     image_url: "/images/service-transmission.jpg",
     tagline: "Help for families to transfer shares to legal heirs or nominees after a shareholder's demise.",
     overview:
@@ -205,7 +205,7 @@ export const FALLBACK_SERVICES: Service[] = [
   },
   {
     slug: "lost-duplicate-share-certificates",
-    title: "Lost / Duplicate Share Certificates",
+    title: "Lost/Duplicate Share Certificates",
     short_description: "Recover lost, stolen or damaged share certificates.",
     image_url: "/images/service-duplicate.jpg",
     tagline: "Get duplicate certificates for shares whose original certificates are lost, stolen or damaged.",
@@ -244,7 +244,7 @@ export const FALLBACK_SERVICES: Service[] = [
   },
   {
     slug: "unclaimed-dividends",
-    title: "Unpaid / Unclaimed Dividends",
+    title: "Unpaid/Unclaimed Dividends",
     short_description: "Claim your pending dividends from companies.",
     image_url: "/images/service-dividends.jpg",
     tagline: "Claim dividends that companies declared but that never reached your bank account.",
@@ -354,8 +354,8 @@ export const FALLBACK_SERVICES: Service[] = [
   },
   {
     slug: "other-financial-asset-assistance",
-    title: "Other Financial Asset Assistance",
-    short_description: "NPS, PPF, Post Office Savings and more.",
+    title: "Other Financial Assets Recovery Assistance",
+    short_description: "Trace and recover unclaimed bank deposits, insurance, mutual funds, bonds and other financial assets.",
     image_url: "/images/service-other-assets.jpg",
     tagline: "Help with mutual funds, insurance, bank deposits, bonds and other assets that have gone unclaimed.",
     overview:
@@ -391,6 +391,86 @@ export const FALLBACK_SERVICES: Service[] = [
 ];
 
 // Active services in display order. Falls back to static fallback data if database is unreachable.
+const FALLBACK_SERVICE_ORDER = new Map([
+  ["iepf-share-dividend-recovery", 1],
+  ["physical-shares-to-demat", 2],
+  ["transmission-of-shares", 3],
+  ["lost-duplicate-share-certificates", 4],
+  ["unclaimed-dividends", 5],
+  ["nri-investment-recovery", 6],
+  ["pf-recovery-assistance", 7],
+  ["other-financial-asset-assistance", 16],
+  ["labour-law-compliances", 11],
+]);
+
+const SERVICE_TITLE_ORDER = [
+  [/^iepf\b/i, 1],
+  [/^physical shares to demat$/i, 2],
+  [/^transmission of shares$/i, 3],
+  [/^lost\s*\/?\s*duplicate share certificates$/i, 4],
+  [/^unpaid\s*\/?\s*unclaimed dividends$/i, 5],
+  [/^nri investment recovery$/i, 6],
+  [/^pf recovery assistance$/i, 7],
+  [/^mutual funds.*bonds recovery$/i, 8],
+  [/^insurance claims.*unclaimed insurance$/i, 9],
+  [/^(esi|gst).*pf compliance$/i, 10],
+  [/^labour law compliances?$/i, 11],
+  [/^tax\s*&\s*gst compliance$/i, 12],
+  [/^itr filing.*tax consultancy$/i, 13],
+  [/^company\s*&\s*llp registrations?$/i, 14],
+  [/^roc\s*&\s*mca compliance$/i, 15],
+  [/^other financial assets? recovery assistance$/i, 16],
+] as const;
+
+function normalizeServiceSummary<T extends ServiceSummary>(service: T): T {
+  if (/^mutual funds.*bonds recovery$/i.test(service.title)) {
+    return { ...service, title: "Mutual Funds and Bonds Recovery" };
+  }
+  if (/^insurance claims.*unclaimed insurance$/i.test(service.title)) {
+    return { ...service, title: "Insurance Claims – Unclaimed Insurance" };
+  }
+  if (/^(esi|gst).*pf compliance$/i.test(service.title)) {
+    return {
+      ...service,
+      title: "ESI and PF Compliance",
+      short_description: "ESI and PF registration, filings, audits and compliance support.",
+      image_url: "/images/service-pf.jpg",
+    };
+  }
+  if (/^other financial asset assistance$/i.test(service.title)) {
+    return {
+      ...service,
+      title: "Other Financial Assets Recovery Assistance",
+      short_description: "Trace and recover unclaimed bank deposits, insurance, mutual funds, bonds and other financial assets.",
+    };
+  }
+  return service;
+}
+
+function serviceOrder(service: Pick<ServiceSummary, "slug" | "title">): number {
+  const slugOrder = FALLBACK_SERVICE_ORDER.get(service.slug);
+  if (slugOrder !== undefined) return slugOrder;
+
+  const titleOrder = SERVICE_TITLE_ORDER.find(([pattern]) => pattern.test(service.title))?.[1];
+  return titleOrder ?? Number.MAX_SAFE_INTEGER;
+}
+
+function sortServices<T extends Pick<ServiceSummary, "slug" | "title">>(services: T[]): T[] {
+  return services
+    .map((service, index) => ({ service, index }))
+    .sort((a, b) => serviceOrder(a.service) - serviceOrder(b.service) || a.index - b.index)
+    .map(({ service }) => service);
+}
+
+function getFallbackServiceSummaries(): ServiceSummary[] {
+  return sortServices(FALLBACK_SERVICES).map(({ slug, title, short_description, image_url }) => ({
+    slug,
+    title,
+    short_description,
+    image_url,
+  }));
+}
+
 export async function getServices(): Promise<ServiceSummary[]> {
   try {
     const { data, error } = await createAdminClient()
@@ -401,22 +481,12 @@ export async function getServices(): Promise<ServiceSummary[]> {
 
     if (error || !data || data.length === 0) {
       if (error) console.warn("Could not load services from Supabase, using fallback:", error.message);
-      return FALLBACK_SERVICES.map(({ slug, title, short_description, image_url }) => ({
-        slug,
-        title,
-        short_description,
-        image_url,
-      }));
+      return getFallbackServiceSummaries();
     }
-    return data;
+    return sortServices(data.map(normalizeServiceSummary));
   } catch (err) {
     console.warn("Error fetching services, using fallback:", err);
-    return FALLBACK_SERVICES.map(({ slug, title, short_description, image_url }) => ({
-      slug,
-      title,
-      short_description,
-      image_url,
-    }));
+    return getFallbackServiceSummaries();
   }
 }
 

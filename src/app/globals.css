@@ -593,7 +593,7 @@ img {
   line-height: 1;
   color: var(--gold-primary);
   margin-bottom: 8px;
-  font-family: Georgia, serif;
+  font-family: var(--font-serif);
 }
 
 .review-text {
@@ -1235,7 +1235,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 88px;
+  height: 98px;
   gap: 24px;
 }
 
@@ -1318,7 +1318,7 @@ img {
   gap: 14px;
 }
 .brand-logo {
-  height: 64px;
+  height: 76px;
   width: auto;
   object-fit: contain;
 }
@@ -1366,24 +1366,24 @@ img {
 
 @media (max-width: 768px) {
   .nav-container {
-    height: 74px;
+    height: 82px;
   }
   .nav-cta {
     display: none !important;
   }
   .brand-row { gap: 10px; }
-  .brand-logo { height: 52px; }
-  .brand-divider { height: 38px; }
-  .brand-name { font-size: 1.5rem; color: #003366; }
-  .brand-sub { font-size: 0.5rem; letter-spacing: 0.2em; color: #b88646; }
-  .brand-tagline { font-size: 0.66rem; margin-top: 1px; }
+  .brand-logo { height: 62px; }
+  .brand-divider { height: 44px; }
+  .brand-name { font-size: 1.65rem; color: #003366; }
+  .brand-sub { font-size: 0.54rem; letter-spacing: 0.2em; color: #b88646; }
+  .brand-tagline { font-size: 0.7rem; margin-top: 1px; }
 }
 
 @media (max-width: 380px) {
   .brand-row { gap: 7px; }
-  .brand-logo { height: 46px; }
-  .brand-divider { height: 32px; }
-  .brand-name { font-size: 1.35rem; }
+  .brand-logo { height: 52px; }
+  .brand-divider { height: 36px; }
+  .brand-name { font-size: 1.45rem; }
   .brand-sub { font-size: 0.44rem; letter-spacing: 0.16em; }
   .brand-tagline { font-size: 0.58rem; }
 }
@@ -2404,8 +2404,8 @@ img {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .footer-disclaimer p {
-  font-size: 0.81rem;
-  line-height: 1.7;
+  font-size: 0.72rem;
+  line-height: 1.55;
   color: #8e9e95;
   margin: 0;
 }

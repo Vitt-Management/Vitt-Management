@@ -221,6 +221,17 @@ export default function Testimonials() {
         </div>
       </div>
 
+      <div style={{ textAlign: "center", marginTop: "32px" }}>
+        <a
+          href="https://www.google.com/search?q=Vitt+Management+reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-outline-gold"
+        >
+          Review Vitt Management on Google
+        </a>
+      </div>
+
       {/* Arrows: desktop only. On phones people swipe. */}
       <div className="reviews-arrows">
         <button type="button" className="reviews-arrow" onClick={() => go(-1, true)} aria-label="Previous review">

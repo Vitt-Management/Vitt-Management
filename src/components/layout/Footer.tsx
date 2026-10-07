@@ -97,7 +97,7 @@ export default function Footer({ services, contact }: { services: { slug: string
         {/* Regulatory Disclaimer */}
         <div className="footer-disclaimer">
           <p>
-            <strong>Disclaimer:</strong> Vitt Management, A Brand of VittEdge Global Advisory LLP is a private consultancy firm and in any manner is not affiliated with, endorsed by, or part of SEBI, IEPF Authority or the Ministry of Corporate Affairs, Government of India. We provide advisory and facilitation services for recovery of Unclaimed Shares and Other Financial Assets on behalf of our clients. All information provided on this website is for general guidance and does not constitute legal or financial advice. Requirements may differ between intermediaries and cases, and we cannot guarantee any outcome. All completed cases are subject to approval by the relevant authorities.
+            <strong>Disclaimer:</strong> Vitt Management, a brand of VittEdge Global Advisory LLP, is a private consultancy firm and is not affiliated with, endorsed by, or part of SEBI, the IEPF Authority, or the Ministry of Corporate Affairs, Government of India. We provide advisory and facilitation services for recovery of unclaimed shares and other financial assets on behalf of our clients. All information is general guidance, not legal or financial advice. Requirements may differ between intermediaries and cases, and completed cases are subject to approval by the relevant authority.
           </p>
         </div>
 

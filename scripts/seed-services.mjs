@@ -95,7 +95,7 @@ const services = [
   {
     slug: "transmission-of-shares",
     title: "Transmission of Shares",
-    short_description: "Assistance for inherited shares after a shareholder's demise.",
+    short_description: "Transferring shares of a deceased shareholder to the rightful legal heir.",
     image_url: "/images/service-transmission.jpg",
     tagline: "Help for families to transfer shares to legal heirs or nominees after a shareholder's demise.",
     overview:
@@ -282,12 +282,12 @@ const services = [
   },
   {
     slug: "other-financial-asset-assistance",
-    title: "Other Financial Asset Assistance",
-    short_description: "NPS, PPF, Post Office Savings and more.",
+    title: "Other Financial Assets Recovery Assistance",
+    short_description: "Trace and recover unclaimed bank deposits, insurance, mutual funds, bonds and other financial assets.",
     image_url: "/images/service-other-assets.jpg",
     tagline: "Help with mutual funds, insurance, bank deposits, bonds and other assets that have gone unclaimed.",
     overview:
-      "Forgotten money is not limited to shares. Inactive bank deposits, old insurance policies, mutual fund folios, bonds and debentures can also go unclaimed, especially after a change of address or the death of the investor.\n\nWe help you work out what you may hold, find the institution that is now responsible and prepare the claim. Each type of asset has its own rules and forms, so we guide you through the process that applies to yours.",
+      "Forgotten money is not limited to shares. Inactive bank deposits, old insurance policies, mutual fund folios, bonds and debentures can also go unclaimed, especially after a change of address or the death of the investor.\n\nWe help you trace these financial assets, identify the institution that holds them, confirm their current status and prepare the right recovery claim. Each asset type has its own rules and forms, so we guide you through the process that applies to yours.",
     who_for: [
       "You suspect a family member had bank deposits, insurance or mutual funds that nobody knows about",
       "An old policy or deposit matured but you never received the money",

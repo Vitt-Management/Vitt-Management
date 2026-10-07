@@ -33,9 +33,16 @@ alter table public.site_settings enable row level security;
 insert into public.site_settings
   (id, phone, whatsapp_number, whatsapp_message, email, address, working_hours, map_query, contact_heading, contact_subheading)
 values
-  (true, '+91 98765 43210', '919876543210',
+  (true, '+91 92752 31114', '919275231114',
    'Hello Vitt Management, I would like to know more about recovering my investments.',
-   'info@vittmanagement.in', 'Mumbai, India', 'Mon-Sat, 9 AM - 7 PM', 'Mumbai, India',
+   'tara.juneja@vittmanagement.in', 'Mumbai, India', 'Mon-Sat, 9 AM - 7 PM', 'Mumbai, India',
    'We''re here to help you recover what''s yours',
    'Tell us about your case and a recovery expert will get back to you within 24 hours.')
 on conflict (id) do nothing;
+
+-- Replace the placeholder contact number in databases created before the public number was confirmed.
+update public.site_settings
+set phone = '+91 92752 31114',
+    whatsapp_number = '919275231114'
+where id = true
+  and phone = '+91 98765 43210';

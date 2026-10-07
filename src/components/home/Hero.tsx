@@ -12,7 +12,7 @@ export default function Hero({ banners }: { banners: Banner[] }) {
           {/* Left Hero Text Column */}
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span className="section-tag" style={{ color: "#a47336", letterSpacing: "0.16em", marginBottom: "14px" }}>
-              LOST INVESTMENTS. REAL SOLUTIONS.
+              INVESTMENT RECOVERY. ADVISORY. COMPLIANCE.
             </span>
 
             <h1 style={{
@@ -35,7 +35,7 @@ export default function Hero({ banners }: { banners: Banner[] }) {
               maxWidth: "520px",
               marginBottom: "32px"
             }}>
-              We help you trace, recover and secure your shares, dividends and other financial assets — with expertise, transparency and care.
+              We help you trace and recover your unclaimed shares, dividends and claim your shares from IEPF and other financial assets – with expertise, transparency and care.
             </p>
 
             {/* Action Buttons */}

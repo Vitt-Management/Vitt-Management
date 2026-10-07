@@ -18,7 +18,7 @@ export async function saveContactSettings(input: SiteSettingsRow): Promise<Resul
   const email = str(input.email);
 
   if (!phone || phone.length > 30 || phone.replace(/\D/g, "").length < 8) return { ok: false, error: "Please enter a valid phone number." };
-  if (whatsapp_number && !/^\d{8,15}$/.test(whatsapp_number)) return { ok: false, error: "The WhatsApp number should be digits only, with the country code (for example 919876543210)." };
+  if (whatsapp_number && !/^\d{8,15}$/.test(whatsapp_number)) return { ok: false, error: "The WhatsApp number should be digits only, with the country code (for example 919275231114)." };
   if (!EMAIL_RE.test(email) || email.length > 320) return { ok: false, error: "Please enter a valid email address." };
 
   const value = {

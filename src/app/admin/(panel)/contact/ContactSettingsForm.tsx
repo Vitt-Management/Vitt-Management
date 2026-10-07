@@ -51,7 +51,7 @@ export default function ContactSettingsForm({ initial }: { initial: SiteSettings
 
       <div className="admin-card form-stack">
         <h2 className="admin-h2">WhatsApp</h2>
-        <Field label="WhatsApp number" id="cs-wa" hint="Digits with the country code, for example 919876543210. Leave empty to hide the WhatsApp button.">
+        <Field label="WhatsApp number" id="cs-wa" hint="Digits with the country code, for example 919275231114. Leave empty to hide the WhatsApp button.">
           <input id="cs-wa" className="admin-input" inputMode="numeric" maxLength={20} value={f.whatsapp_number} onChange={set("whatsapp_number")} />
         </Field>
         <Field label="Message that opens with the chat" id="cs-wamsg" hint="Visitors can change it before sending.">

@@ -26,7 +26,21 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Vitt Management | Tracing & Recovering Your Forgotten Financial Assets",
   description:
-    "We help you trace, recover and secure your shares, dividends and other financial assets — with expertise, transparency and care.",
+    "Vitt Management helps you trace and recover unclaimed shares, dividends, IEPF claims and other financial assets with expertise, transparency and care.",
+  keywords: [
+    "unclaimed shares recovery",
+    "IEPF share recovery",
+    "unclaimed dividend recovery",
+    "physical shares to demat",
+    "financial asset recovery India",
+    "NRI investment recovery",
+  ],
+  openGraph: {
+    title: "Vitt Management | Financial Asset Recovery",
+    description: "Trace and recover unclaimed shares, dividends and other financial assets.",
+    siteName: "Vitt Management",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

@@ -44,7 +44,7 @@ export default function BlogContentRenderer({ content }: { content: string }) {
             <h2
               id={id}
               style={{
-                fontFamily: "var(--font-serif, 'Playfair Display', Georgia, serif)",
+                fontFamily: "var(--font-serif)",
                 fontSize: "1.65rem",
                 fontWeight: 700,
                 color: "var(--dark-forest, #101c16)",

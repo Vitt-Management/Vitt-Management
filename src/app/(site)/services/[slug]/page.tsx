@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, FileText, Phone } from "lucide-react";
 import { getServiceBySlug, getServices } from "@/lib/services";
 import { getSiteContact } from "@/lib/contact";
 import ServiceCard from "@/components/services/ServiceCard";
+import SafeServiceImage from "@/components/services/SafeServiceImage";
 
 // Content comes from the database; admin edits show up within this window.
 export const revalidate = 300;
@@ -38,7 +38,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       {/* Banner */}
       <section style={{ position: "relative", overflow: "hidden", backgroundColor: "#101c16" }}>
         {service.image_url && (
-          <Image src={service.image_url} alt="" fill priority sizes="100vw" style={{ objectFit: "cover", opacity: 0.35 }} />
+          <SafeServiceImage src={service.image_url} alt="" fill priority sizes="100vw" style={{ objectFit: "cover", opacity: 0.35 }} />
         )}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,19,15,0.94) 0%, rgba(11,19,15,0.6) 100%)" }} />
         <div className="container-custom" style={{ position: "relative", paddingTop: "64px", paddingBottom: "76px" }}>
