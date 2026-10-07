@@ -7,7 +7,7 @@ export default function ExpertCta() {
   if (!cta) return null;
 
   return (
-    <section style={{ backgroundColor: "#faf8f5", paddingTop: "44px", paddingBottom: "44px", borderBottom: "1px solid #e7dfcf" }}>
+    <section className="expert-cta-section" style={{ backgroundColor: "#faf8f5", paddingTop: "44px", paddingBottom: "44px", borderBottom: "1px solid #e7dfcf" }}>
       <div className="container-custom">
         <div className="expert-cta">
           <div className="expert-cta-icon">

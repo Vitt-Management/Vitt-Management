@@ -53,7 +53,7 @@ export default function RootLayout({
       lang="en"
       className={`${cormorantGaramond.variable} ${manrope.variable} ${caveat.variable}`}
     >
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>

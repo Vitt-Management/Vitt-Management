@@ -13,7 +13,7 @@ export default function PeaceOfMind() {
   ];
 
   return (
-    <section style={{
+    <section className="peace-section" style={{
       backgroundColor: "#ffffff",
       paddingTop: "72px",
       paddingBottom: "76px",
@@ -32,7 +32,7 @@ export default function PeaceOfMind() {
             <span className="section-tag" style={{ color: "#a47336", letterSpacing: "0.15em", marginBottom: "12px" }}>
               Why Choose Vitt Management
             </span>
-            <h2 style={{
+            <h2 className="peace-section-title" style={{
               fontFamily: "var(--font-serif)",
               fontSize: "2.3rem",
               fontWeight: 700,
@@ -45,7 +45,7 @@ export default function PeaceOfMind() {
               It&apos;s About Your Peace of Mind.
             </h2>
 
-            <p style={{
+            <p className="peace-section-copy" style={{
               fontSize: "0.96rem",
               lineHeight: 1.65,
               color: "#526057",

@@ -34,7 +34,7 @@ export default function ProcessStepper() {
   };
 
   return (
-    <section id="how-it-works" style={{ 
+    <section id="how-it-works" className="process-section" style={{
       backgroundColor: "#faf7f2", 
       paddingTop: "72px", 
       paddingBottom: "80px", 
@@ -44,14 +44,14 @@ export default function ProcessStepper() {
       <div className="container-custom">
         
         {/* Section Header */}
-        <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 52px" }}>
+        <div className="process-section-header" style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 52px" }}>
           <span className="section-tag" style={{ color: "#a47336" }}>
             A SIMPLE 7-STEP PROCESS
           </span>
-          <h2 className="section-title" style={{ marginTop: "4px" }}>
+          <h2 className="section-title process-section-title" style={{ marginTop: "4px" }}>
             How Vitt Management Works
           </h2>
-          <p className="section-subtitle">
+          <p className="section-subtitle process-section-subtitle">
             From your old documents to recovered assets — we handle it all.
           </p>
         </div>

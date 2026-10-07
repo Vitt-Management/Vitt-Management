@@ -64,6 +64,7 @@ const hurdles = [
 export default function RecoveryHurdles() {
   return (
     <section 
+      className="recovery-hurdles-section"
       style={{ 
         backgroundColor: "#faf8f5", 
         paddingTop: "72px", 
@@ -74,12 +75,12 @@ export default function RecoveryHurdles() {
     >
       <div className="container-custom">
         {/* Section Header */}
-        <div style={{ textAlign: "center", maxWidth: "820px", margin: "0 auto 48px auto" }}>
+        <div className="recovery-hurdles-header" style={{ textAlign: "center", maxWidth: "820px", margin: "0 auto 48px auto" }}>
           <span className="section-tag" style={{ color: "#a47336", letterSpacing: "0.15em", marginBottom: "12px" }}>
             Asset Recovery Challenges
           </span>
           <h2 
-            className="section-title"
+            className="section-title recovery-hurdles-title"
             style={{ 
               fontSize: "clamp(2rem, 3.2vw, 2.75rem)", 
               lineHeight: 1.25, 
@@ -90,6 +91,7 @@ export default function RecoveryHurdles() {
             Your Old Investment/Wealth Shouldn&apos;t Get Lost in the Hurdles of the Process.
           </h2>
           <p 
+            className="recovery-hurdles-subtitle"
             style={{ 
               fontSize: "1.05rem", 
               color: "#526057", 
@@ -103,6 +105,7 @@ export default function RecoveryHurdles() {
 
         {/* 9 Hurdles Grid */}
         <div 
+          className="hurdles-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))",

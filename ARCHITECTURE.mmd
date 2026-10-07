@@ -1,0 +1,70 @@
+graph TB
+    subgraph Browser["🌐 Client (Browser)"]
+        Home["Home Page\n(SSR/ISR)"]
+        Services["Services Pages\n/services/[slug]"]
+        About["About / FAQ / Contact"]
+        AdminUI["Admin Panel\n(Protected)"]
+    end
+
+    subgraph NextJS["⚡ Next.js 15 App Router"]
+        Middleware["Middleware (proxy.ts)\n• Session refresh\n• Admin gate /admin/*"]
+        
+        subgraph Layouts["Route Groups"]
+            SiteLayout["(site) Layout\n• Navbar + Footer\n• revalidate = 0"]
+            AdminLayout["Admin Layout\n• AdminNav + Sidebar\n• requireAdmin()"]
+        end
+        
+        ServerComponents["Server Components\n• Fetch at build/request\n• revalidate = 0"]
+        ServerActions["Server Actions\n• Mutations (CRUD)"]
+    end
+
+    subgraph DataLayer["📦 Data Layer (src/lib)"]
+        ServerClient["createClient()\n• Anon key\n• User session\n• RLS enforced"]
+        AdminClient["createAdminClient()\n• Service role\n• Bypasses RLS\n• server-only"]
+        DomainModules["Domain Modules\n• services.ts\n• banners.ts\n• contact.ts\n• global-faqs.ts"]
+    end
+
+    subgraph Supabase["☁️ Supabase Backend"]
+        Database["PostgreSQL Database"]
+        Auth["Auth (Email/Password)"]
+        Storage["Storage Buckets"]
+        
+        subgraph Tables["Tables with RLS"]
+            Banners["hero_banners"]
+            Svcs["services"]
+            Contacts["contact_requests"]
+            Settings["site_settings"]
+            FAQs["global_faqs"]
+            Users["auth.users\n(app_metadata.role)"]
+        end
+        
+        Buckets["banners bucket\n(public, 5MB, images)"]
+    end
+
+    %% Connections
+    Home --> Middleware
+    Services --> Middleware
+    About --> Middleware
+    AdminUI --> Middleware
+
+    Middleware --> SiteLayout
+    Middleware --> AdminLayout
+    
+    SiteLayout --> ServerComponents
+    AdminLayout --> ServerComponents
+    AdminLayout --> ServerActions
+
+    ServerComponents --> ServerClient
+    ServerComponents --> AdminClient
+    ServerActions --> AdminClient
+
+    ServerClient --> DomainModules
+    AdminClient --> DomainModules
+    DomainModules --> Database
+
+    Auth -.-> Middleware
+    Auth -.-> ServerClient
+    Auth -.-> AdminClient
+
+    Database --> Tables
+    Storage --> Buckets

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function OldDocumentsBanner() {
   return (
-    <section style={{
+    <section className="old-documents-section" style={{
       backgroundColor: "#f5efe4",
       paddingTop: "60px",
       paddingBottom: "64px",
@@ -39,7 +39,7 @@ export default function OldDocumentsBanner() {
 
           {/* Right Text Column */}
           <div>
-            <h2 style={{
+            <h2 className="old-documents-title" style={{
               fontFamily: "var(--font-serif)",
               fontSize: "2.1rem",
               fontWeight: 700,
@@ -52,7 +52,7 @@ export default function OldDocumentsBanner() {
               They Could Be Valuable.
             </h2>
 
-            <p style={{
+            <p className="old-documents-copy" style={{
               fontSize: "0.96rem",
               lineHeight: 1.65,
               color: "#526057",
