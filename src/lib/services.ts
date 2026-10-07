@@ -1,5 +1,6 @@
 import "server-only";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { AUDITED_SERVICE_DETAILS } from "@/data/auditedServiceDetails";
 
 export interface ServiceSummary {
   slug: string;
@@ -17,7 +18,7 @@ export interface Service extends ServiceSummary {
   faqs: { question: string; answer: string }[];
 }
 
-export const FALLBACK_SERVICES: Service[] = [
+const LEGACY_FALLBACK_SERVICES: Service[] = [
   {
     slug: "labour-law-compliances",
     title: "Labour Law Compliances",
@@ -246,7 +247,7 @@ export const FALLBACK_SERVICES: Service[] = [
     slug: "unclaimed-dividends",
     title: "Unpaid/Unclaimed Dividends",
     short_description: "Claim your pending dividends from companies.",
-    image_url: "/images/service-dividends.jpg",
+    image_url: "/images/Unpaid Unclaimed Dividends.jpeg",
     tagline: "Claim dividends that companies declared but that never reached your bank account.",
     overview:
       "Dividends can go unpaid for many reasons: an old or closed bank account, a change of address, a missing signature or simply a forgotten folio. When the dividend stays unpaid, the company holds it in an unpaid dividend account, and if it stays unclaimed for seven years it is transferred to IEPF.\n\nIf your dividend is still with the company, you can usually claim it directly from the company or its registrar. If it has already moved to IEPF, we help you claim it from there. We identify where your money currently is and take the right route.",
@@ -283,7 +284,7 @@ export const FALLBACK_SERVICES: Service[] = [
     slug: "nri-investment-recovery",
     title: "NRI Investment Recovery",
     short_description: "Assistance for NRIs to recover Indian investments.",
-    image_url: "/images/service-nri.jpg",
+    image_url: "/images/NRI Investment Recovery.jpeg",
     tagline: "Recover and manage your investments in India from anywhere in the world.",
     overview:
       "Living abroad makes it harder to keep track of investments in India. Old addresses, changed residential status and paperwork that needs to be done in person are common reasons why NRIs lose touch with their shares, dividends and other holdings.\n\nWe work with you remotely and coordinate with companies, registrars and authorities in India on your behalf where the rules allow. Your residential status also affects how investments are held and how funds can be moved, so we guide you on the documents and procedures that apply to NRIs.",
@@ -320,7 +321,7 @@ export const FALLBACK_SERVICES: Service[] = [
     slug: "pf-recovery-assistance",
     title: "PF Recovery Assistance",
     short_description: "Help with Provident Fund claims and withdrawals.",
-    image_url: "/images/service-pf.jpg",
+    image_url: "/images/pf_final image.jpeg",
     tagline: "Get help with Provident Fund claims, transfers and withdrawals.",
     overview:
       "Many people change jobs several times and end up with old Provident Fund (PF) accounts they have not touched for years. Problems such as mismatched details, missing KYC, inactive accounts or rejected claims can leave that money stuck.\n\nWe help you sort out your PF details, correct records and file the right claim. Whether the issue is a rejected claim, a transfer between employers or an account you have lost track of, we guide you step by step.",
@@ -390,6 +391,15 @@ export const FALLBACK_SERVICES: Service[] = [
   },
 ];
 
+const AUDITED_SERVICE_DETAILS_BY_SLUG = new Map<string, Service>(
+  AUDITED_SERVICE_DETAILS.map((service) => [service.slug, service])
+);
+
+export const FALLBACK_SERVICES: Service[] = [
+  ...LEGACY_FALLBACK_SERVICES.filter((service) => !AUDITED_SERVICE_DETAILS_BY_SLUG.has(service.slug)),
+  ...AUDITED_SERVICE_DETAILS,
+];
+
 // Active services in display order. Falls back to static fallback data if database is unreachable.
 const FALLBACK_SERVICE_ORDER = new Map([
   ["iepf-share-dividend-recovery", 1],
@@ -399,8 +409,15 @@ const FALLBACK_SERVICE_ORDER = new Map([
   ["unclaimed-dividends", 5],
   ["nri-investment-recovery", 6],
   ["pf-recovery-assistance", 7],
-  ["other-financial-asset-assistance", 16],
+  ["mutual-funds-bonds-recovery", 8],
+  ["insurance-claims", 9],
+  ["gst-pf-compliance", 10],
   ["labour-law-compliances", 11],
+  ["tax-gst-compliance", 12],
+  ["itr-filing-tax-consultancy", 13],
+  ["company-llp-registration", 14],
+  ["roc-mca-compliance", 15],
+  ["other-financial-asset-assistance", 16],
 ]);
 
 const SERVICE_TITLE_ORDER = [
@@ -423,8 +440,39 @@ const SERVICE_TITLE_ORDER = [
 ] as const;
 
 function normalizeServiceSummary<T extends ServiceSummary>(service: T): T {
+  const audited = AUDITED_SERVICE_DETAILS_BY_SLUG.get(service.slug);
+  if (audited) {
+    return {
+      ...service,
+      title: audited.title,
+      short_description: audited.short_description,
+      image_url: service.slug === "gst-pf-compliance" ? audited.image_url : service.image_url,
+    };
+  }
+  if (service.slug === "iepf-share-dividend-recovery") {
+    return { ...service, title: "IEPF Claim of Shares and Dividends" };
+  }
+  if (service.slug === "transmission-of-shares") {
+    return {
+      ...service,
+      short_description: "Transferring shares of a deceased shareholder to the rightful legal heir.",
+    };
+  }
+  if (service.slug === "unclaimed-dividends") {
+    return { ...service, image_url: "/images/Unpaid Unclaimed Dividends.jpeg" };
+  }
+  if (service.slug === "nri-investment-recovery") {
+    return { ...service, image_url: "/images/NRI Investment Recovery.jpeg" };
+  }
+  if (service.slug === "pf-recovery-assistance") {
+    return { ...service, image_url: "/images/pf_final image.jpeg" };
+  }
   if (/^mutual funds.*bonds recovery$/i.test(service.title)) {
-    return { ...service, title: "Mutual Funds and Bonds Recovery" };
+    return {
+      ...service,
+      title: "Mutual Funds and Bonds Recovery",
+      short_description: "Assistance in Claiming Old/Unclaimed Mutual Funds and Bonds.",
+    };
   }
   if (/^insurance claims.*unclaimed insurance$/i.test(service.title)) {
     return { ...service, title: "Insurance Claims – Unclaimed Insurance" };
@@ -434,7 +482,7 @@ function normalizeServiceSummary<T extends ServiceSummary>(service: T): T {
       ...service,
       title: "ESI and PF Compliance",
       short_description: "ESI and PF registration, filings, audits and compliance support.",
-      image_url: "/images/service-pf.jpg",
+      image_url: "/images/esi & pf.jpeg",
     };
   }
   if (/^other financial asset assistance$/i.test(service.title)) {
@@ -445,6 +493,17 @@ function normalizeServiceSummary<T extends ServiceSummary>(service: T): T {
     };
   }
   return service;
+}
+
+function needsAuditedServiceDetails(service: Service): boolean {
+  if (service.overview.startsWith("This is sample content")) return true;
+  if (service.slug === "labour-law-compliances") {
+    return service.overview.startsWith("Indian labour laws are extensive");
+  }
+  if (service.slug === "other-financial-asset-assistance") {
+    return service.overview.startsWith("Forgotten money is not limited to shares");
+  }
+  return false;
 }
 
 function serviceOrder(service: Pick<ServiceSummary, "slug" | "title">): number {
@@ -504,7 +563,11 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
       const fallback = FALLBACK_SERVICES.find((s) => s.slug === slug);
       return fallback ?? null;
     }
-    return (data as Service | null) ?? null;
+    const normalized = normalizeServiceSummary(data as Service);
+    const audited = AUDITED_SERVICE_DETAILS_BY_SLUG.get(normalized.slug);
+    return audited && needsAuditedServiceDetails(normalized)
+      ? { ...audited, image_url: normalized.image_url || audited.image_url }
+      : normalized;
   } catch (err) {
     console.warn(`Error fetching service "${slug}", using fallback:`, err);
     const fallback = FALLBACK_SERVICES.find((s) => s.slug === slug);

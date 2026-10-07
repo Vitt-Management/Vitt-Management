@@ -32,7 +32,7 @@ where lower(title) like 'insurance claims%';
 update public.services
 set title = 'ESI and PF Compliance',
     short_description = 'ESI and PF registration, filings, audits and compliance support.',
-    image_url = '/images/service-pf.jpg',
+    image_url = '/images/esi & pf.jpeg',
     overview = 'Employee State Insurance (ESI) and Provident Fund (PF) compliance requires accurate registrations, employee records, periodic filings and timely contributions.
 
 We help employers manage ESI and PF registrations, monthly filings, contribution records, reconciliations, employee queries, claim support and compliance notices so that statutory obligations are handled correctly and on time.'

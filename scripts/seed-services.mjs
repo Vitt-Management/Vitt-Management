@@ -174,7 +174,7 @@ const services = [
     slug: "unclaimed-dividends",
     title: "Unpaid / Unclaimed Dividends",
     short_description: "Claim your pending dividends from companies.",
-    image_url: "/images/service-dividends.jpg",
+    image_url: "/images/Unpaid Unclaimed Dividends.jpeg",
     tagline: "Claim dividends that companies declared but that never reached your bank account.",
     overview:
       "Dividends can go unpaid for many reasons: an old or closed bank account, a change of address, a missing signature or simply a forgotten folio. When the dividend stays unpaid, the company holds it in an unpaid dividend account, and if it stays unclaimed for seven years it is transferred to IEPF.\n\nIf your dividend is still with the company, you can usually claim it directly from the company or its registrar. If it has already moved to IEPF, we help you claim it from there. We identify where your money currently is and take the right route.",
@@ -211,7 +211,7 @@ const services = [
     slug: "nri-investment-recovery",
     title: "NRI Investment Recovery",
     short_description: "Assistance for NRIs to recover Indian investments.",
-    image_url: "/images/service-nri.jpg",
+    image_url: "/images/NRI Investment Recovery.jpeg",
     tagline: "Recover and manage your investments in India from anywhere in the world.",
     overview:
       "Living abroad makes it harder to keep track of investments in India. Old addresses, changed residential status and paperwork that needs to be done in person are common reasons why NRIs lose touch with their shares, dividends and other holdings.\n\nWe work with you remotely and coordinate with companies, registrars and authorities in India on your behalf where the rules allow. Your residential status also affects how investments are held and how funds can be moved, so we guide you on the documents and procedures that apply to NRIs.",
@@ -248,7 +248,7 @@ const services = [
     slug: "pf-recovery-assistance",
     title: "PF Recovery Assistance",
     short_description: "Help with Provident Fund claims and withdrawals.",
-    image_url: "/images/service-pf.jpg",
+    image_url: "/images/pf_final image.jpeg",
     tagline: "Get help with Provident Fund claims, transfers and withdrawals.",
     overview:
       "Many people change jobs several times and end up with old Provident Fund (PF) accounts they have not touched for years. Problems such as mismatched details, missing KYC, inactive accounts or rejected claims can leave that money stuck.\n\nWe help you sort out your PF details, correct records and file the right claim. Whether the issue is a rejected claim, a transfer between employers or an account you have lost track of, we guide you step by step.",

@@ -9,10 +9,7 @@ import {
   Coins,
   FileCheck2,
   Handshake,
-  HelpCircle,
   PhoneCall,
-  Scale,
-  ShieldCheck,
   TrendingUp,
   UserCheck,
   Users,
@@ -22,31 +19,31 @@ import PartnerForm from "@/components/partner/PartnerForm";
 import { getSiteContact } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "Partner with Us | Make Your Network Into Your Passive Income | Vitt Management",
+  title: "Partner with Us | Professional Recovery Collaboration | Vitt Management",
   description:
-    "Join the Vitt Management Partner Program. Refer clients with stuck shares, IEPF claims, or physical demat issues. We handle documentary coordination and recovery support, while legal work remains with qualified legal professionals.",
+    "Join the Vitt Management Partner Program and connect clients with documentation support, process coordination, and recovery assistance for unclaimed financial assets.",
 };
 
 const benefits = [
   {
     icon: Coins,
-    title: "Attractive Passive Income",
-    text: "Earn a high-percentage referral commission on every successful asset recovery case without investing upfront capital.",
+    title: "Rewarding Referral Opportunities",
+    text: "Earn an agreed referral commission when a client you introduce completes a successful asset recovery engagement.",
   },
   {
-    icon: Scale,
-    title: "Documentary & Recovery Support",
-    text: "We coordinate document collection, IEPF and RTA paperwork, government-procedure support, and case updates. Any legal work is handled solely by qualified legal professionals.",
+    icon: FileCheck2,
+    title: "Documentation & Process Support",
+    text: "We help organise required documents, coordinate with RTAs and relevant authorities, and keep each recovery process moving.",
   },
   {
     icon: Handshake,
-    title: "Monetize Existing Client Trust",
-    text: "Provide your existing clients with a high-value recovery solution for their forgotten or disputed wealth, enhancing your credibility.",
+    title: "Strengthen Client Relationships",
+    text: "Extend dependable recovery assistance to clients with forgotten or unclaimed financial assets while preserving the trust you have built.",
   },
   {
     icon: TrendingUp,
-    title: "High-Ticket Case Value",
-    text: "Physical shares and unclaimed dividends often carry valuations in lakhs and crores, translating into substantial referral earnings.",
+    title: "Meaningful Recovery Opportunities",
+    text: "Help clients address old physical shares, unclaimed dividends, IEPF claims, and other financial assets through a structured process.",
   },
   {
     icon: UserCheck,
@@ -55,8 +52,8 @@ const benefits = [
   },
   {
     icon: Zap,
-    title: "Prompt Commission Payouts",
-    text: "Referral payouts are disbursed directly to your bank account promptly upon case settlement and client receipt.",
+    title: "Transparent Referral Payouts",
+    text: "Receive clear payout updates and the agreed referral commission after a successful case completion and client receipt.",
   },
 ];
 
@@ -64,27 +61,27 @@ const targetPartners = [
   {
     icon: Building2,
     role: "Chartered Accountants (CAs)",
-    desc: "Help your audit & tax clients resolve legacy share folios, unclaimed dividends, and corporate transmission bottlenecks without consuming your billable hours.",
+    desc: "Extend organised documentation and recovery coordination to clients with legacy share folios, unclaimed dividends, or old investments.",
   },
   {
     icon: TrendingUp,
     role: "Financial Advisors & MFDs",
-    desc: "Unlock your clients' stuck ancestral wealth and convert old physical shares to Demat so they can seamlessly reinvest into active portfolios.",
+    desc: "Connect clients with support for old physical shares, unclaimed investments, and Demat-related recovery processes.",
   },
   {
     icon: Briefcase,
     role: "Stock Brokers & Sub-brokers",
-    desc: "Address inactive accounts, lost share certificates, name mismatches, and signature changes for your client base smoothly.",
+    desc: "Help clients navigate documentation for inactive accounts, lost share certificates, name mismatches, and signature updates.",
   },
   {
-    icon: Scale,
-    role: "Lawyers & Legal Practitioners",
-    desc: "Partner with us when a case needs legal advice, legal drafting, succession certificates, probate, legal-heirship work, or estate transmission support.",
+    icon: FileCheck2,
+    role: "Company Secretaries & Compliance Professionals",
+    desc: "Collaborate on documentation-intensive recovery cases that require organised records, RTA coordination, and structured follow-ups.",
   },
   {
     icon: Users,
     role: "Consultants & Networkers",
-    desc: "If you have connections with HNIs, NRI families, or business owners with unclaimed financial assets, monetize your network effortlessly.",
+    desc: "Introduce HNIs, NRI families, and business owners who may need professional assistance with unclaimed financial assets.",
   },
 ];
 
@@ -96,41 +93,41 @@ const steps = [
   },
   {
     num: "02",
-    title: "Refer Your Client",
-    desc: "Share your client's contact details or basic folio info. We perform a complimentary claim & feasibility audit.",
+    title: "Introduce Your Client",
+    desc: "With the client's consent, share their contact details and any available folio or asset information for an initial review.",
   },
   {
     num: "03",
-    title: "We Handle Documentary Work",
-    desc: "Our recovery team coordinates document collection, RTA liaisons, IEPF paperwork, and follow-ups with authorities. Legal work and legal filings are handled solely by qualified legal professionals.",
+    title: "We Coordinate the Process",
+    desc: "Our recovery team reviews available records, provides documentation checklists, coordinates with RTAs and relevant authorities, and tracks progress.",
   },
   {
     num: "04",
-    title: "Earn Referral Commission",
-    desc: "Upon successful recovery of the assets/funds, your commission is directly credited with full transparency.",
+    title: "Stay Updated & Earn",
+    desc: "Your Partner Manager shares milestone updates, and the agreed referral commission is processed after successful recovery.",
   },
 ];
 
 const partnerFaqs = [
   {
     q: "How does the partner commission structure work?",
-    a: "We offer attractive, tiered referral commissions based on the case type and recovered asset valuation. Our Partner Manager will share the detailed agreement and commission slabs upon registration.",
+    a: "Referral commissions are based on the case type, scope, and recovered asset value. Your Partner Manager will explain the applicable structure and payout milestones before a referral begins.",
   },
   {
-    q: "Do I have to do the documentary work or client follow-up?",
-    a: "No. Vitt Management coordinates the documentary work, RTA communication, IEPF paperwork and case updates. Any legal advice, legal drafting or legal filing is handled solely by the client's qualified legal professional.",
+    q: "Do I have to manage the documentation or client follow-up?",
+    a: "No. Vitt Management provides document checklists, coordinates recovery-related communication, follows up on process milestones, and keeps both you and the client informed.",
   },
   {
     q: "What types of cases can I refer?",
-    a: "You can refer any cases involving IEPF recovery, physical share dematerialization, transmission of shares, lost share certificates, unclaimed dividends, NRI investment recovery, and old PF/financial claims.",
+    a: "You can refer clients who need assistance with IEPF recovery, physical share dematerialisation, share transmission documentation, lost certificates, unclaimed dividends, NRI investments, PF claims, or other unclaimed financial assets.",
   },
   {
     q: "How will I know the progress of my referred clients?",
-    a: "Your dedicated Partner Manager provides milestone updates at every key stage — from document verification and RTA submission to final approval and disbursement.",
+    a: "Your dedicated Partner Manager provides milestone updates from the initial document review and process submission through follow-ups, approval, and recovery.",
   },
   {
     q: "Is client confidentiality protected?",
-    a: "Absolutely. All client records and financial details are protected by strict non-disclosure practices and handled exclusively by certified recovery specialists.",
+    a: "Yes. Client records and financial information are handled through controlled processes and shared only with the teams and institutions required for the recovery engagement.",
   },
 ];
 
@@ -165,7 +162,7 @@ export default async function PartnerWithUsPage() {
             <span aria-current="page">Partner with Us</span>
           </nav>
 
-          {/* Main Headline Requested by User */}
+          {/* Main Headline */}
           <h1
             style={{
               fontFamily: "var(--font-serif)",
@@ -177,10 +174,10 @@ export default async function PartnerWithUsPage() {
               maxWidth: "880px",
             }}
           >
-            Make Your Network Into your <span style={{ color: "#dfb87c" }}>Passive Income</span>
+            Build Value Through <span style={{ color: "#dfb87c" }}>Professional Collaboration</span>
           </h1>
 
-          {/* Exact Subheadline / Pitch Requested */}
+          {/* Partnership Overview */}
           <p
             style={{
               fontSize: "clamp(1.1rem, 2.2vw, 1.3rem)",
@@ -190,9 +187,9 @@ export default async function PartnerWithUsPage() {
               marginBottom: "36px",
             }}
           >
-            Just refer clients who are facing difficulties in recovering their wealth and leave the documentary
-            coordination and recovery support to us. Any legal work is handled solely by qualified legal professionals,
-            while you earn a referral commission on every successful case.
+            Connect clients who need help recovering shares, dividends, or other financial assets. We provide
+            documentation support, process coordination, and regular progress updates while you remain informed and earn
+            on successful referrals.
           </p>
 
           {/* CTA Buttons */}
@@ -202,7 +199,7 @@ export default async function PartnerWithUsPage() {
               className="btn-primary-gold"
               style={{ padding: "16px 36px", fontSize: "1.05rem" }}
             >
-              Become a Partner <ArrowRight size={18} style={{ marginLeft: "6px" }} />
+              Join the Partner Network <ArrowRight size={18} style={{ marginLeft: "6px" }} />
             </a>
             <a
               href={contact.phoneHref || "tel:+919275231114"}
@@ -210,7 +207,7 @@ export default async function PartnerWithUsPage() {
               style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "15px 28px" }}
             >
               <PhoneCall size={18} />
-              <span>Talk to Partner Lead</span>
+              <span>Speak With Our Partnership Team</span>
             </a>
           </div>
         </div>
@@ -229,27 +226,27 @@ export default async function PartnerWithUsPage() {
           >
             <div>
               <div style={{ color: "var(--gold-light)", fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: 700 }}>
-                100% Risk-Free
+                Zero Upfront Cost
               </div>
-              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Zero upfront investment required</div>
+              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>No joining fee for referral partners</div>
             </div>
             <div>
               <div style={{ color: "var(--gold-light)", fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: 700 }}>
-                End-to-End
+                Coordinated Support
               </div>
-              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Documentary &amp; RTA coordination by Vitt</div>
+              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Documentation and process coordination</div>
             </div>
             <div>
               <div style={{ color: "var(--gold-light)", fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: 700 }}>
-                High Payouts
+                Transparent Rewards
               </div>
-              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Attractive commission per closed case</div>
+              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Clear referral terms and payout updates</div>
             </div>
             <div>
               <div style={{ color: "var(--gold-light)", fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: 700 }}>
-                Pan-India
+                Pan-India Reach
               </div>
-              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Network of CAs, Advisors &amp; Lawyers</div>
+              <div style={{ color: "#c0cdc6", fontSize: "0.95rem", marginTop: "4px" }}>Collaboration with professionals nationwide</div>
             </div>
           </div>
         </div>
@@ -263,11 +260,11 @@ export default async function PartnerWithUsPage() {
               PARTNER ADVANTAGES
             </span>
             <h2 className="section-title" style={{ marginTop: "8px", marginBottom: "16px" }}>
-              Why Professionals Partner With Vitt Management
+              Why Collaborate With Vitt Management
             </h2>
             <p style={{ color: "var(--text-body)", fontSize: "1.1rem", lineHeight: 1.6 }}>
-              Unlock the monetization potential of dormant and stuck wealth in your network without deviating from your
-              core practice.
+              Extend dependable recovery assistance to your clients while our team coordinates documentation,
+              communication, and progress tracking.
             </p>
           </div>
 
@@ -338,11 +335,11 @@ export default async function PartnerWithUsPage() {
               IDEAL PARTNERS
             </span>
             <h2 className="section-title" style={{ marginTop: "8px", marginBottom: "16px" }}>
-              Who Can Become a Partner?
+              Who Can Join Our Partner Network?
             </h2>
             <p style={{ color: "var(--text-body)", fontSize: "1.08rem", lineHeight: 1.6 }}>
-              Whether you are an established financial institution, an independent practitioner, or a well-connected
-              professional, you can start earning immediately.
+              Professionals who support individuals, families, and businesses can collaborate with us to connect clients
+              with a structured asset recovery process.
             </p>
           </div>
 
@@ -420,10 +417,10 @@ export default async function PartnerWithUsPage() {
                 marginBottom: "16px",
               }}
             >
-              How the Referral Process Works
+              How Our Collaboration Works
             </h2>
             <p style={{ color: "#d1dcd5", fontSize: "1.08rem", lineHeight: 1.6 }}>
-              A straightforward, transparent mechanism designed to deliver maximum value to you and your clients.
+              A clear, coordinated workflow that keeps you informed and gives every referred client structured support.
             </p>
           </div>
 
@@ -505,16 +502,16 @@ export default async function PartnerWithUsPage() {
                     marginBottom: "16px",
                   }}
                 >
-                  What You Get as a Vitt Partner
+                  What You Receive as a Vitt Partner
                 </h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
                   {[
-                    "Standardized Partner Referral Agreement with clear commission percentages",
-                    "Direct liaison with dedicated Claim Specialists and documentary coordinators",
-                    "Zero liability or operational friction on your end",
-                    "Free preliminary folio searches & claim viability audits for your clients",
-                    "Regular email/WhatsApp case progress reports",
-                    "Fast commission release upon claim payout",
+                    "Clear referral terms and commission structure",
+                    "A dedicated Partner Manager and recovery coordination team",
+                    "Preliminary review of available folio and asset information",
+                    "Documentation checklists tailored to each recovery process",
+                    "Regular case progress updates by email or WhatsApp",
+                    "Transparent payout updates after successful recovery",
                   ].map((perk, i) => (
                     <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
                       <CheckCircle2 size={20} style={{ color: "var(--gold-primary)", flexShrink: 0, marginTop: "2px" }} />
@@ -537,21 +534,22 @@ export default async function PartnerWithUsPage() {
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", color: "var(--gold-light)", marginBottom: "12px" }}>
                   <PhoneCall size={20} />
                   <span style={{ fontWeight: 700, fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                    Prefer Direct Discussion?
+                    Want to Discuss a Referral?
                   </span>
                 </div>
                 <h4 style={{ fontFamily: "var(--font-serif)", fontSize: "1.4rem", fontWeight: 700, marginBottom: "8px" }}>
-                  Speak with our Partnership Team
+                  Speak With Our Partnership Team
                 </h4>
                 <p style={{ color: "#c0cdc6", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "20px" }}>
-                  Have questions regarding commission structures or multiple corporate client cases? Call our direct partner line.
+                  Have questions about referrals, documentation support, or coordinating multiple client cases? Our team
+                  can walk you through the next steps.
                 </p>
                 <a
                   href={contact.phoneHref || "tel:+919275231114"}
                   className="btn-primary-gold"
                   style={{ width: "100%", justifyContent: "center", padding: "14px 20px" }}
                 >
-                  Call {contact.phone || "+91 92752 31114"}
+                  Call Partnership Team
                 </a>
               </div>
             </div>
@@ -567,10 +565,10 @@ export default async function PartnerWithUsPage() {
               COMMON QUESTIONS
             </span>
             <h2 className="section-title" style={{ marginTop: "8px", marginBottom: "14px" }}>
-              Frequently Asked Questions by Partners
+              Partner Programme FAQs
             </h2>
             <p style={{ color: "var(--text-body)", fontSize: "1.05rem" }}>
-              Everything you need to know about partnering with Vitt Management.
+              Clear answers about referrals, coordination, communication, and payouts.
             </p>
           </div>
 

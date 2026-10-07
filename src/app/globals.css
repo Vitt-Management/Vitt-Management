@@ -63,8 +63,18 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: var(--font-sans);
   background-color: var(--bg-page);
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
 }
 
 a {
@@ -880,7 +890,7 @@ img {
 .reviews-arrows {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 80px;
 }
 .reviews-arrow {
   width: 44px;
@@ -1044,21 +1054,6 @@ img {
   outline: 3px solid var(--gold-primary);
   outline-offset: 4px;
   border-radius: 4px;
-}
-
-.nav-cta {
-  font-size: 0.94rem;
-  padding: 10px 22px;
-  font-weight: 700;
-  white-space: nowrap;
-  letter-spacing: 0.02em;
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(184, 134, 70, 0.22);
-  transition: all 0.2s ease;
-}
-.nav-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 14px rgba(184, 134, 70, 0.35);
 }
 
 .nav-contact-wrapper {
@@ -1239,23 +1234,33 @@ img {
   gap: 24px;
 }
 
+@media (min-width: 1140px) {
+  .desktop-nav {
+    flex: 1;
+    justify-content: flex-start;
+    gap: clamp(12px, 1.2vw, 20px);
+    min-width: 0;
+    margin-left: clamp(24px, 3vw, 48px);
+  }
+}
+
 @media (min-width: 1400px) {
   .desktop-nav {
-    gap: 24px;
+    gap: clamp(22px, 1.5vw, 28px);
+  }
+  .desktop-nav .nav-link {
+    font-size: 0.82rem;
+    padding: 6px 2px;
   }
 }
 
 @media (max-width: 1399px) and (min-width: 1260px) {
   .desktop-nav {
-    gap: 16px;
+    gap: 18px;
   }
   .nav-link {
     font-size: 0.91rem;
     padding: 8px 3px;
-  }
-  .nav-cta {
-    padding: 9px 18px;
-    font-size: 0.91rem;
   }
 }
 
@@ -1269,10 +1274,6 @@ img {
   .nav-link {
     font-size: 0.85rem;
     padding: 6px 2px;
-  }
-  .nav-cta {
-    padding: 8px 14px;
-    font-size: 0.84rem;
   }
   .brand-row {
     gap: 10px;
@@ -1311,14 +1312,15 @@ img {
   display: inline-flex;
   flex-shrink: 0;
   text-decoration: none;
+  margin-left: clamp(-14px, -1vw, -6px);
 }
 .brand-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 .brand-logo {
-  height: 76px;
+  height: 92px;
   width: auto;
   object-fit: contain;
 }
@@ -1333,23 +1335,29 @@ img {
   gap: 1px;
 }
 .brand-name {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
   font-family: var(--font-serif);
-  font-size: 1.95rem;
+  font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 0.95;
-  color: #003366; /* Logo Navy Blue */
+  color: var(--gold-primary);
+  white-space: nowrap;
+}
+.brand-name > span:first-child {
+  color: #001A35;
 }
 .brand-sub {
-  display: block;
+  display: inline;
   font-family: var(--font-sans);
-  font-size: 0.62rem;
+  font-size: 0.82em;
   font-weight: 700;
-  letter-spacing: 0.28em;
-  color: #b88646; /* Logo Golden */
+  letter-spacing: 0.2em;
+  color: var(--gold-primary);
   text-transform: uppercase;
   line-height: 1;
-  margin-top: 2px;
 }
 .brand-tagline {
   display: block;
@@ -1368,14 +1376,12 @@ img {
   .nav-container {
     height: 82px;
   }
-  .nav-cta {
-    display: none !important;
-  }
+  .brand-link { margin-left: 0; }
   .brand-row { gap: 10px; }
-  .brand-logo { height: 62px; }
+  .brand-logo { height: 66px; }
   .brand-divider { height: 44px; }
-  .brand-name { font-size: 1.65rem; color: #003366; }
-  .brand-sub { font-size: 0.54rem; letter-spacing: 0.2em; color: #b88646; }
+  .brand-name { gap: 6px; font-size: 1.52rem; }
+  .brand-sub { font-size: 0.82em; letter-spacing: 0.16em; }
   .brand-tagline { font-size: 0.7rem; margin-top: 1px; }
 }
 
@@ -1383,8 +1389,8 @@ img {
   .brand-row { gap: 7px; }
   .brand-logo { height: 52px; }
   .brand-divider { height: 36px; }
-  .brand-name { font-size: 1.45rem; }
-  .brand-sub { font-size: 0.44rem; letter-spacing: 0.16em; }
+  .brand-name { gap: 4px; font-size: 1.25rem; }
+  .brand-sub { font-size: 0.82em; letter-spacing: 0.12em; }
   .brand-tagline { font-size: 0.58rem; }
 }
 
@@ -2188,8 +2194,10 @@ img {
 
 /* Footer */
 .site-footer {
-  background: linear-gradient(180deg, #0f1814 0%, #0b130f 100%);
-  color: #d3ddd7;
+  background:
+    radial-gradient(circle at 12% 38%, rgba(184, 134, 70, 0.08) 0%, transparent 30%),
+    linear-gradient(180deg, #101d17 0%, #08110d 100%);
+  color: #edf3ef;
   padding-top: 68px;
 }
 
@@ -2197,14 +2205,14 @@ img {
 .footer-services-section {
   padding-bottom: 44px;
   margin-bottom: 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 .footer-services-header {
   margin-bottom: 24px;
 }
 .footer-services-subtitle {
   font-size: 0.95rem;
-  color: #a9b8af;
+  color: #bdcbc2;
   margin-top: -12px;
   margin-bottom: 0;
   line-height: 1.5;
@@ -2219,10 +2227,10 @@ img {
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  color: #d3ddd7;
+  color: #edf3ef;
   font-size: 0.95rem;
   font-weight: 500;
   line-height: 1.4;
@@ -2253,7 +2261,7 @@ img {
   grid-template-columns: 1.4fr 0.9fr 1.3fr;
   gap: 52px;
   padding-bottom: 56px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 .footer-grid {
   display: grid;
@@ -2266,7 +2274,13 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 20px;
+  max-width: 100%;
+  padding: 7px 18px 7px 8px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #f7f1e7 100%);
+  border: 1px solid rgba(223, 184, 124, 0.55);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
 }
 .footer-logo-badge {
   display: flex;
@@ -2286,25 +2300,26 @@ img {
 }
 .footer-logo-name {
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
+  gap: 9px;
   font-family: var(--font-serif);
   font-size: 2.2rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 0.95;
+  white-space: nowrap;
 }
 .footer-brand-vitt {
-  color: #003366; /* Exact Logo Navy Blue as in Header */
+  color: #001A35;
 }
 .footer-brand-mgmt {
-  display: block;
+  display: inline;
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: 0.68em;
   font-weight: 700;
-  letter-spacing: 0.3em;
-  color: #b88646; /* Exact Golden as in Header */
+  letter-spacing: 0.2em;
+  color: #8c5d24;
   text-transform: uppercase;
-  margin-top: 5px;
   line-height: 1;
 }
 .footer-brand-attribution,
@@ -2327,13 +2342,13 @@ img {
   font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--gold-light);
+  color: #efc987;
   margin-bottom: 12px;
 }
 .footer-about {
   font-size: 1.02rem;
   line-height: 1.7;
-  color: #c3cfc8;
+  color: #d8e2dc;
   max-width: 340px;
 }
 .footer-title {
@@ -2363,7 +2378,7 @@ img {
 .footer-link {
   font-size: 1.02rem;
   line-height: 1.45;
-  color: #d3ddd7;
+  color: #edf3ef;
   transition: color 0.2s ease;
 }
 .footer-link:hover { color: var(--gold-light); }
@@ -2379,7 +2394,7 @@ img {
   gap: 14px;
   font-size: 1.02rem;
   line-height: 1.5;
-  color: #d3ddd7;
+  color: #edf3ef;
 }
 .footer-contact-icon {
   display: flex;
@@ -2396,7 +2411,7 @@ img {
 .footer-contact-label {
   display: block;
   font-size: 0.88rem;
-  color: #a9b8af;
+  color: #bdcbc2;
   margin-bottom: 1px;
 }
 .footer-disclaimer {
@@ -2406,11 +2421,11 @@ img {
 .footer-disclaimer p {
   font-size: 0.72rem;
   line-height: 1.55;
-  color: #8e9e95;
+  color: #aebdb4;
   margin: 0;
 }
 .footer-disclaimer strong {
-  color: #b9c6be;
+  color: #d8e2dc;
   font-weight: 600;
 }
 .footer-bottom {
@@ -2421,7 +2436,7 @@ img {
   gap: 12px;
   padding: 24px 0;
   font-size: 1rem;
-  color: #a9b8af;
+  color: #bdcbc2;
 }
 
 @media (max-width: 1024px) {
@@ -2442,9 +2457,10 @@ img {
   .footer-services-grid { grid-template-columns: 1fr; gap: 10px; }
   .footer-main-grid,
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-  .footer-logo { gap: 12px; }
+  .footer-logo { gap: 12px; padding: 6px 10px 6px 6px; }
   .footer-logo-badge { width: 78px; height: 78px; }
-  .footer-logo-name { font-size: 1.65rem; }
+  .footer-logo-name { gap: 6px; font-size: 1.4rem; }
+  .footer-brand-mgmt { letter-spacing: 0.14em; }
   .footer-brand-attribution { font-size: 0.72rem; }
   .footer-bottom { padding-bottom: 104px; } /* keeps the last lines clear of the floating WhatsApp/Call buttons */
   .cta-light { padding: 60px 0 64px; }

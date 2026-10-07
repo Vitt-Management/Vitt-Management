@@ -11,6 +11,25 @@ import SafeServiceImage from "@/components/services/SafeServiceImage";
 export const revalidate = 300;
 export const dynamicParams = true;
 
+const serviceCtaLabels: Record<string, string> = {
+  "iepf-share-dividend-recovery": "Start Your IEPF Recovery",
+  "physical-shares-to-demat": "Convert Physical Shares",
+  "transmission-of-shares": "Start Share Transmission",
+  "lost-duplicate-share-certificates": "Replace Share Certificates",
+  "unclaimed-dividends": "Recover Unclaimed Dividends",
+  "nri-investment-recovery": "Recover NRI Investments",
+  "pf-recovery-assistance": "Resolve Your PF Claim",
+  "mutual-funds-bonds-recovery": "Recover Mutual Funds & Bonds",
+  "insurance-claims": "Trace an Insurance Claim",
+  "gst-pf-compliance": "Review ESI & PF Compliance",
+  "labour-law-compliances": "Discuss Labour Compliance",
+  "tax-gst-compliance": "Organise Tax & GST Compliance",
+  "itr-filing-tax-consultancy": "Prepare Your Income-Tax Return",
+  "company-llp-registration": "Start Company or LLP Registration",
+  "roc-mca-compliance": "Review ROC & MCA Compliance",
+  "other-financial-asset-assistance": "Trace Other Financial Assets",
+};
+
 export async function generateStaticParams() {
   return (await getServices()).map((s) => ({ slug: s.slug }));
 }
@@ -32,6 +51,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const others = all.filter((s) => s.slug !== service.slug);
   const paragraphs = service.overview.split(/\n\s*\n/).filter(Boolean);
+  const ctaLabel = serviceCtaLabels[service.slug] || `Discuss ${service.title}`;
 
   return (
     <>
@@ -57,9 +77,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           )}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "14px" }}>
             <Link href="/contact" className="btn-primary-gold" style={{ padding: "14px 30px", fontSize: "1rem" }}>
-              Contact Now
+              {ctaLabel}
             </Link>
-            <a href={contact.phoneHref} className="svc-banner-outline">Call Us</a>
+            <a href={contact.phoneHref} className="svc-banner-outline">Call About This Service</a>
           </div>
         </div>
       </section>
@@ -71,7 +91,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="svc-main">
               {paragraphs.length > 0 && (
                 <div className="svc-block">
-                  <h2 className="svc-h2">About this service</h2>
+                  <h2 className="svc-h2">About {service.title}</h2>
                   {paragraphs.map((p, i) => (
                     <p key={i} className="svc-text">{p}</p>
                   ))}
@@ -80,7 +100,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
               {service.who_for.length > 0 && (
                 <div className="svc-block">
-                  <h2 className="svc-h2">Who this is for</h2>
+                  <h2 className="svc-h2">Who Can Benefit From {service.title}</h2>
                   <ul className="svc-list">
                     {service.who_for.map((item) => (
                       <li key={item}>
@@ -94,7 +114,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
               {service.how_we_help.length > 0 && (
                 <div className="svc-block">
-                  <h2 className="svc-h2">How we help</h2>
+                  <h2 className="svc-h2">How We Help With {service.title}</h2>
                   <ol className="svc-steps">
                     {service.how_we_help.map((s, i) => (
                       <li key={s.title}>
@@ -111,9 +131,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
               {service.documents.length > 0 && (
                 <div className="svc-block">
-                  <h2 className="svc-h2">Documents commonly needed</h2>
+                  <h2 className="svc-h2">Documents for {service.title}</h2>
                   <p className="svc-text" style={{ marginBottom: "18px" }}>
-                    The exact list depends on your case. We will confirm what applies to you.
+                    Requirements vary by case and institution. We will confirm what applies to your engagement.
                   </p>
                   <ul className="svc-list svc-docs">
                     {service.documents.map((d) => (
@@ -129,7 +149,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {service.faqs.length > 0 && (
                 <div className="svc-block">
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px", marginBottom: "16px" }}>
-                    <h2 className="svc-h2" style={{ margin: 0 }}>Frequently asked questions</h2>
+                    <h2 className="svc-h2" style={{ margin: 0 }}>{service.title} FAQs</h2>
                     <Link href={`/faq?topic=${service.slug}`} className="svc-faq-all-link">
                       See all FAQs &rarr;
                     </Link>
@@ -153,11 +173,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   Need help with {service.title}?
                 </h2>
                 <p style={{ fontSize: "1.05rem", lineHeight: 1.65, color: "var(--text-body)", marginBottom: "22px" }}>
-                  Tell us about your case and a recovery expert will get back to you within 24 hours.
+                  Tell us what you need help with, and a specialist familiar with {service.title} will get back to you within 24 hours.
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                   <Link href="/contact" className="btn-primary-gold" style={{ padding: "14px 24px", fontSize: "1rem" }}>
-                    Contact Now
+                    {ctaLabel}
                   </Link>
                   <a href={contact.phoneHref} className="svc-side-call">
                     <Phone size={18} /> {contact.phone}

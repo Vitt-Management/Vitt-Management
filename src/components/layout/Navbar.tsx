@@ -59,6 +59,18 @@ export default function Navbar({
     setServicesDropdownOpen(false);
   };
 
+  const handleNavigationClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    closeAll();
+
+    const isModifiedClick = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+    if (pathname !== href || event.button !== 0 || isModifiedClick) {
+      return;
+    }
+
+    event.preventDefault();
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   return (
     <header className="site-header">
       {/* Top Bar with Phone & Email */}
@@ -83,13 +95,15 @@ export default function Navbar({
         <div className="container-custom nav-container">
 
         {/* Logo Section */}
-        <Link href="/" className="brand-link" aria-label="Vitt Management - home" onClick={closeAll}>
+        <Link href="/" className="brand-link" aria-label="Vitt Management - home" onClick={(event) => handleNavigationClick(event, "/")}>
           <span className="brand-row">
-            <Image src="/images/final_logo.png" alt="Vitt Management" width={82} height={82} priority className="brand-logo" />
+            <Image src="/images/final_logo.png" alt="Vitt Management" width={92} height={92} priority className="brand-logo" />
             <span className="brand-divider" aria-hidden="true" />
             <span className="brand-copy">
-              <span className="brand-name">VITT</span>
-              <span className="brand-sub">MANAGEMENT</span>
+              <span className="brand-name">
+                <span>VITT</span>
+                <span className="brand-sub">MANAGEMENT</span>
+              </span>
               <span className="brand-tagline">Recovering Wealth. Restoring Trust.</span>
             </span>
           </span>
@@ -97,7 +111,7 @@ export default function Navbar({
 
         {/* Desktop Nav Links */}
         <nav className="desktop-nav" aria-label="Main">
-          <Link href="/" className={`nav-link${onHome ? " active" : ""}`} {...cur(onHome)}>
+          <Link href="/" className={`nav-link${onHome ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/")} {...cur(onHome)}>
             Home
           </Link>
 
@@ -127,13 +141,14 @@ export default function Navbar({
                   {serviceColumns.map((column, columnIndex) => (
                     <div key={columnIndex} className="nav-dropdown-column">
                       {column.map((svc) => {
-                        const active = pathname === `/services/${svc.slug}`;
+                        const href = `/services/${svc.slug}`;
+                        const active = pathname === href;
                         return (
                           <Link
                             key={svc.slug}
-                            href={`/services/${svc.slug}`}
+                            href={href}
                             className={`dropdown-item${active ? " active" : ""}`}
-                            onClick={closeAll}
+                            onClick={(event) => handleNavigationClick(event, href)}
                             {...cur(active)}
                           >
                             <ServiceThumb src={svc.image_url} size={36} />
@@ -148,21 +163,23 @@ export default function Navbar({
             )}
           </div>
 
-          <Link href="/#how-it-works" className="nav-link">How It Works</Link>
-          <Link href="/about" className={`nav-link${onAbout ? " active" : ""}`} {...cur(onAbout)}>
+          <Link href="/about" className={`nav-link${onAbout ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/about")} {...cur(onAbout)}>
             About Us
           </Link>
-          <Link href="/blog" className={`nav-link${onBlog ? " active" : ""}`} {...cur(onBlog)}>
+          <Link href="/blog" className={`nav-link${onBlog ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/blog")} {...cur(onBlog)}>
             Blogs
           </Link>
-          <Link href="/faq" className={`nav-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
+          <Link href="/faq" className={`nav-link${onFaq ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/faq")} {...cur(onFaq)}>
             FAQs
           </Link>
-          <Link href="/partner-with-us" className={`nav-link${onPartner ? " active" : ""}`} {...cur(onPartner)}>
+          <Link href="/partner-with-us" className={`nav-link${onPartner ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/partner-with-us")} {...cur(onPartner)}>
             Partner with Us
           </Link>
+          <Link href="/contact" className="nav-link" onClick={(event) => handleNavigationClick(event, "/contact")}>
+            Start Your Recovery
+          </Link>
           <div className="nav-contact-wrapper">
-            <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} {...cur(onContact)}>
+            <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/contact")} {...cur(onContact)}>
               Contact Us
             </Link>
             <a href={phoneHref} className="nav-call-sub" aria-label={`Call us at ${phone}`}>
@@ -172,12 +189,8 @@ export default function Navbar({
           </div>
         </nav>
 
-        {/* Right CTA Area */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
-          <Link href="/contact" className="btn-primary-gold nav-cta" onClick={closeAll}>
-            Start Your Recovery
-          </Link>
-
+        {/* Mobile menu control */}
+        <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -195,7 +208,7 @@ export default function Navbar({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <nav className="mobile-drawer" aria-label="Mobile">
-          <Link href="/" onClick={closeAll} className={`m-link${onHome ? " active" : ""}`} {...cur(onHome)}>
+          <Link href="/" onClick={(event) => handleNavigationClick(event, "/")} className={`m-link${onHome ? " active" : ""}`} {...cur(onHome)}>
             <span>Home</span>
           </Link>
 
@@ -213,12 +226,13 @@ export default function Navbar({
           {mobileServicesOpen && (
             <div className="m-sublist">
               {services.map((svc) => {
-                const active = pathname === `/services/${svc.slug}`;
+                const href = `/services/${svc.slug}`;
+                const active = pathname === href;
                 return (
                   <Link
                     key={svc.slug}
-                    href={`/services/${svc.slug}`}
-                    onClick={closeAll}
+                    href={href}
+                    onClick={(event) => handleNavigationClick(event, href)}
                     className={`m-subitem${active ? " active" : ""}`}
                     {...cur(active)}
                   >
@@ -230,30 +244,28 @@ export default function Navbar({
             </div>
           )}
 
-          <Link href="/#how-it-works" onClick={closeAll} className="m-link"><span>How It Works</span></Link>
-          <Link href="/about" onClick={closeAll} className={`m-link${onAbout ? " active" : ""}`} {...cur(onAbout)}>
+          <Link href="/about" onClick={(event) => handleNavigationClick(event, "/about")} className={`m-link${onAbout ? " active" : ""}`} {...cur(onAbout)}>
             <span>About Us</span>
           </Link>
-          <Link href="/blog" onClick={closeAll} className={`m-link${onBlog ? " active" : ""}`} {...cur(onBlog)}>
+          <Link href="/blog" onClick={(event) => handleNavigationClick(event, "/blog")} className={`m-link${onBlog ? " active" : ""}`} {...cur(onBlog)}>
             <span>Blogs</span>
           </Link>
-          <Link href="/faq" onClick={closeAll} className={`m-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
+          <Link href="/faq" onClick={(event) => handleNavigationClick(event, "/faq")} className={`m-link${onFaq ? " active" : ""}`} {...cur(onFaq)}>
             <span>FAQs</span>
           </Link>
-          <Link href="/partner-with-us" onClick={closeAll} className={`m-link${onPartner ? " active" : ""}`} {...cur(onPartner)}>
+          <Link href="/partner-with-us" onClick={(event) => handleNavigationClick(event, "/partner-with-us")} className={`m-link${onPartner ? " active" : ""}`} {...cur(onPartner)}>
             <span>Partner with Us</span>
           </Link>
-          <Link href="/contact" onClick={closeAll} className={`m-link${onContact ? " active" : ""}`} {...cur(onContact)}>
+          <Link href="/contact" onClick={(event) => handleNavigationClick(event, "/contact")} className="m-link">
+            <span>Start Your Recovery</span>
+          </Link>
+          <Link href="/contact" onClick={(event) => handleNavigationClick(event, "/contact")} className={`m-link${onContact ? " active" : ""}`} {...cur(onContact)}>
             <span>Contact Us</span>
           </Link>
           <a href={phoneHref} onClick={closeAll} className="m-link" style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--gold-dark)", fontWeight: 700 }}>
             <Phone size={18} style={{ color: "var(--gold-primary)" }} />
             <span>Call Now ({phone})</span>
           </a>
-
-          <Link href="/contact" onClick={closeAll} className="btn-primary-gold" style={{ marginTop: "14px", padding: "14px 24px", fontSize: "1rem" }}>
-            Start Your Recovery
-          </Link>
         </nav>
       )}
     </header>

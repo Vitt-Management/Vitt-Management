@@ -29,6 +29,9 @@ export default function PeaceOfMind() {
 
           {/* Left Text Column */}
           <div>
+            <span className="section-tag" style={{ color: "#a47336", letterSpacing: "0.15em", marginBottom: "12px" }}>
+              Why Choose Vitt Management
+            </span>
             <h2 style={{
               fontFamily: "var(--font-serif)",
               fontSize: "2.3rem",

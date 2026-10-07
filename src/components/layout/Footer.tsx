@@ -52,10 +52,9 @@ export default function Footer({ services, contact }: { services: { slug: string
                   <span className="footer-brand-vitt">VITT</span>
                   <span className="footer-brand-mgmt">MANAGEMENT</span>
                 </span>
-                <span className="footer-brand-attribution">A brand of VittEdge Global Advisory LLP</span>
               </span>
             </Link>
-            <p className="footer-tagline">Recover Today.<br />Secure Tomorrow.</p>
+            <p className="footer-tagline">Recovering Wealth. Restoring Trust</p>
             <p className="footer-about">
               We help you trace, recover and secure your forgotten shares, dividends and other financial assets, with expertise, transparency and care.
             </p>

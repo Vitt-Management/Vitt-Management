@@ -22,7 +22,7 @@ const professionOptions = [
   { value: "Chartered Accountant (CA) / Tax Consultant", label: "Chartered Accountant (CA) / Tax Consultant" },
   { value: "Financial Advisor / MFD / Wealth Manager", label: "Financial Advisor / MFD / Wealth Manager" },
   { value: "Stock Broker / Remisier", label: "Stock Broker / Sub-broker / Remisier" },
-  { value: "Advocate / Legal Consultant", label: "Advocate / Legal Consultant" },
+  { value: "Company Secretary / Compliance Professional", label: "Company Secretary / Compliance Professional" },
   { value: "Independent Agent / Networker", label: "Independent Agent / Networker" },
   { value: "Corporate / Business Consultant", label: "Corporate / Business Consultant" },
   { value: "Other", label: "Other" },
@@ -57,14 +57,14 @@ export default function PartnerForm() {
     >
       <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "var(--gold-pale)", color: "var(--gold-dark)", padding: "6px 14px", borderRadius: "var(--radius-full)", fontSize: "0.85rem", fontWeight: 700, marginBottom: "16px" }}>
         <Sparkles size={16} />
-        <span>FAST PARTNER ENROLLMENT</span>
+        <span>PROFESSIONAL PARTNER NETWORK</span>
       </div>
 
       <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.7rem, 3.5vw, 2.2rem)", fontWeight: 700, color: "var(--text-headline)", marginBottom: "8px" }}>
-        Join Our Partner Network
+        Start a Professional Collaboration
       </h2>
       <p style={{ fontSize: "1.02rem", color: "var(--text-body)", marginBottom: "28px", lineHeight: 1.6 }}>
-        Fill in your details below. Our partnership team will review your application and get in touch with you within 24 hours.
+        Share your details and referral interests. Our partnership team will connect with you to explain the process and next steps.
       </p>
 
       {showSuccess ? (
@@ -85,10 +85,10 @@ export default function PartnerForm() {
             <CheckCircle2 size={42} />
           </div>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--text-headline)", marginBottom: "10px" }}>
-            Application Submitted Successfully!
+            Partnership Request Submitted!
           </h3>
           <p style={{ fontSize: "1.02rem", color: "var(--text-body)", marginBottom: "24px", maxWidth: "480px", margin: "0 auto 24px", lineHeight: 1.6 }}>
-            Thank you for your interest in partnering with Vitt Management. Our dedicated partner desk will review your details and connect with you shortly.
+            Thank you for your interest in collaborating with Vitt Management. Our partner desk will review your details and connect with you shortly.
           </p>
 
           <div>
@@ -103,7 +103,7 @@ export default function PartnerForm() {
                 cursor: "pointer",
               }}
             >
-              Submit another application
+              Send another request
             </button>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function PartnerForm() {
 
           <div>
             <label htmlFor="pf-message" style={labelStyle}>
-              Case Overview or Questions (Optional)
+              Referral Needs or Questions (Optional)
             </label>
             <textarea
               id="pf-message"
@@ -216,7 +216,7 @@ export default function PartnerForm() {
               rows={4}
               maxLength={5000}
               style={{ resize: "vertical" }}
-              placeholder="Tell us about the clients/cases you'd like to refer (e.g. IEPF claims, lost shares, demat issues)"
+              placeholder="Tell us about the clients or recovery needs you would like to refer, such as IEPF claims, lost shares, or Demat support"
               defaultValue={v.message}
             />
           </div>
@@ -251,12 +251,12 @@ export default function PartnerForm() {
               marginTop: "8px",
             }}
           >
-            {pending ? "Submitting Application..." : "Submit Application"}
+            {pending ? "Sending Request..." : "Send Partnership Request"}
           </button>
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginTop: "16px", color: "var(--text-muted)", fontSize: "0.88rem" }}>
             <ShieldCheck size={16} style={{ color: "var(--gold-primary)" }} />
-            <span>Saved in Admin Dashboard • High Referral Commissions • Dedicated Manager</span>
+            <span>Secure Records • Transparent Referral Terms • Dedicated Partner Manager</span>
           </div>
         </form>
       )}

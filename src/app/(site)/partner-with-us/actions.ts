@@ -57,7 +57,7 @@ export async function submitPartnerInquiry(
   }
 
   const combinedMessage = [
-    `[Partner Application]`,
+    `[Partnership Request]`,
     `Profession: ${values.profession}`,
     values.city ? `City: ${values.city}` : "",
     values.message ? `Details / Notes: ${values.message}` : "",
@@ -85,12 +85,12 @@ export async function submitPartnerInquiry(
   // 2. Generate mailto URL for direct user mailbox redirection
   const contact = await getSiteContact();
   const recipient = contact.email || "info@vittmangement.in";
-  const emailSubject = encodeURIComponent(`Partner Application: ${values.name} (${values.profession})`);
+  const emailSubject = encodeURIComponent(`Partnership Request: ${values.name} (${values.profession})`);
   
   const emailBody = [
     `Hello Vitt Management Team,`,
     ``,
-    `I would like to partner with Vitt Management. Below are my registration details:`,
+    `I would like to explore a professional collaboration with Vitt Management. Below are my details:`,
     ``,
     `• Full Name: ${values.name}`,
     `• Phone / WhatsApp: ${values.phone}`,
@@ -99,7 +99,7 @@ export async function submitPartnerInquiry(
     values.city ? `• City / Location: ${values.city}` : "",
     values.message ? `• Case Overview / Notes:\n${values.message}` : "",
     ``,
-    `Please share the partner agreement and commission structure.`,
+    `Please share the referral process, collaboration terms, and next steps.`,
     ``,
     `Best regards,`,
     `${values.name}`,

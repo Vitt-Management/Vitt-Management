@@ -60,19 +60,19 @@ export const servicesData: ServiceItem[] = [
     id: "unclaimed-dividends",
     title: "Unpaid / Unclaimed Dividends",
     description: "Claim your pending dividends from companies.",
-    image: "/images/service-dividends.jpg",
+    image: "/images/Unpaid Unclaimed Dividends.jpeg",
   },
   {
     id: "nri-recovery",
     title: "NRI Investment Recovery",
     description: "Assistance for NRIs to recover Indian investments.",
-    image: "/images/service-nri.jpg",
+    image: "/images/NRI Investment Recovery.jpeg",
   },
   {
     id: "pf-recovery",
     title: "PF Recovery Assistance",
     description: "Help with Provident Fund claims and withdrawals.",
-    image: "/images/service-pf.jpg",
+    image: "/images/pf_final image.jpeg",
   },
   {
     id: "other-financial-assets",
