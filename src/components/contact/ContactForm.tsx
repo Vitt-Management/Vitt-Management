@@ -65,10 +65,6 @@ export default function ContactForm() {
       <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.7rem, 3.5vw, 2.1rem)", fontWeight: 700, color: "var(--text-headline)", marginBottom: "8px" }}>
         Tell us about your case
       </h2>
-      <p style={{ fontSize: "1rem", color: "var(--text-body)", marginBottom: "26px", lineHeight: 1.6 }}>
-        Only <strong>Name</strong> and <strong>Phone</strong> are mandatory. Rest of the information is optional.
-      </p>
-
       {showSuccess ? (
         <div style={{ textAlign: "center", padding: "36px 12px" }}>
           <div style={{ width: "68px", height: "68px", borderRadius: "50%", background: "#e8f5e9", color: "#2e7d32", fontSize: "2rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
@@ -123,11 +119,11 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Email and City (Optional) */}
+          {/* Email and City */}
           <div className="contact-form-row">
             <div>
               <label htmlFor="cf-email" style={labelStyle}>
-                Email <span style={{ color: "var(--text-muted)", fontWeight: 400, fontSize: "0.85rem" }}>(Optional)</span>
+                Email
               </label>
               <input
                 id="cf-email"
@@ -142,7 +138,7 @@ export default function ContactForm() {
             </div>
             <div>
               <label htmlFor="cf-city" style={labelStyle}>
-                City <span style={{ color: "var(--text-muted)", fontWeight: 400, fontSize: "0.85rem" }}>(Optional)</span>
+                City
               </label>
               <input
                 id="cf-city"
@@ -155,14 +151,14 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Service and How did you hear about us (Optional) */}
+          {/* Service and How did you hear about us */}
           <div className="contact-form-row">
             <div>
               <label htmlFor="cf-service" style={labelStyle}>
-                Service <span style={{ color: "var(--text-muted)", fontWeight: 400, fontSize: "0.85rem" }}>(Optional)</span>
+                Service
               </label>
               <select id="cf-service" name="service" className="form-input contact-input" defaultValue={v.service}>
-                <option value="">Select a service (Optional)</option>
+                <option value="">Select a service</option>
                 {serviceOptions.map((o) => (
                   <option key={o.value} value={o.value}>{o.label}</option>
                 ))}
@@ -170,7 +166,7 @@ export default function ContactForm() {
             </div>
             <div>
               <label htmlFor="cf-howHeard" style={labelStyle}>
-                How did you hear about us? <span style={{ color: "var(--text-muted)", fontWeight: 400, fontSize: "0.85rem" }}>(Optional)</span>
+                How did you hear about us?
               </label>
               <select id="cf-howHeard" name="howHeard" className="form-input contact-input" defaultValue={v.howHeard}>
                 <option value="">Select an option</option>
@@ -181,10 +177,10 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Message (Optional) */}
+          {/* Message */}
           <div>
             <label htmlFor="cf-message" style={labelStyle}>
-              Message <span style={{ color: "var(--text-muted)", fontWeight: 400, fontSize: "0.85rem" }}>(Optional)</span>
+              Message
             </label>
             <textarea
               id="cf-message"

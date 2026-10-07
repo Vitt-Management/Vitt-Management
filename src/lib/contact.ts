@@ -8,15 +8,19 @@ const SETTINGS_COLUMNS =
 
 const PRIMARY_PHONE = "+91 92752 31114";
 const PRIMARY_WHATSAPP_NUMBER = "919275231114";
+const PRIMARY_ADDRESS =
+  "VittEdge Global Advisory LLP. A-11, Fourth Floor, Lane No.18, Joga Bai Extension, Okhla, New Delhi, 110025. India.";
+const PRIMARY_MAP_QUERY =
+  "A-11, Fourth Floor, Lane No.18, Joga Bai Extension, Okhla, New Delhi, 110025, India";
 
 const FALLBACK_SITE_SETTINGS: SiteSettingsRow = {
   phone: PRIMARY_PHONE,
   whatsapp_number: PRIMARY_WHATSAPP_NUMBER,
   whatsapp_message: "Hello Vitt Management, I would like to know more about recovering my investments.",
-  email: "tara.juneja@vittmanagement.in",
-  address: "Mumbai, India",
+  email: "info@vittmangement.in",
+  address: PRIMARY_ADDRESS,
   working_hours: "Mon-Sat, 9 AM - 7 PM",
-  map_query: "Mumbai, India",
+  map_query: PRIMARY_MAP_QUERY,
   contact_heading: "We're here to help you recover what's yours",
   contact_subheading: "Tell us about your case and a recovery expert will get back to you within 24 hours.",
 };
@@ -32,8 +36,18 @@ export async function getSiteSettingsRow(): Promise<SiteSettingsRow> {
     // Replace the original placeholder while preserving any number configured later in admin.
     if (settings.phone === "+91 98765 43210") settings.phone = PRIMARY_PHONE;
     if (settings.whatsapp_number === "919876543210") settings.whatsapp_number = PRIMARY_WHATSAPP_NUMBER;
-    if (settings.email === "info@vittmanagement.in" || settings.email === "komal.goswami@vittmanagement.in") {
-      settings.email = "tara.juneja@vittmanagement.in";
+    if (
+      settings.email === "info@vittmanagement.in" ||
+      settings.email === "komal.goswami@vittmanagement.in" ||
+      settings.email === "tara.juneja@vittmanagement.in"
+    ) {
+      settings.email = "info@vittmangement.in";
+    }
+    if (!settings.address || settings.address === "Mumbai, India") {
+      settings.address = PRIMARY_ADDRESS;
+    }
+    if (!settings.map_query || settings.map_query === "Mumbai, India") {
+      settings.map_query = PRIMARY_MAP_QUERY;
     }
     return settings;
   } catch (err) {

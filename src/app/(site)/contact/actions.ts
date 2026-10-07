@@ -78,7 +78,7 @@ export async function submitContact(_prev: ContactFormState, formData: FormData)
 
   // 2. Generate mailto URL for direct user mailbox redirection
   const contact = await getSiteContact();
-  const recipient = contact.email || "tara.juneja@vittmanagement.in";
+  const recipient = contact.email || "info@vittmangement.in";
   const sLabel = serviceOptions.find((o) => o.value === values.service)?.label || values.service || "Case Inquiry";
   const emailSubject = encodeURIComponent(`Case Details: ${values.name} - ${sLabel}`);
 

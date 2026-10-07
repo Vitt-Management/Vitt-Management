@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import type { SiteContact } from "@/lib/contact-shared";
 
 export default function ContactDetails({ contact }: { contact: SiteContact }) {
@@ -6,7 +6,6 @@ export default function ContactDetails({ contact }: { contact: SiteContact }) {
     { icon: Phone, label: "Call us", value: contact.phone, href: contact.phoneHref },
     { icon: Mail, label: "Email us", value: contact.email, href: `mailto:${contact.email}` },
     { icon: MapPin, label: "Visit us", value: contact.address },
-    { icon: Clock, label: "Working hours", value: contact.hours },
   ].filter((i) => i.value);
 
   return (

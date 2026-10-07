@@ -36,7 +36,7 @@ export default function Navbar({
 
   const phone = contact?.phone || "+91 92752 31114";
   const phoneHref = contact?.phoneHref || "tel:+919275231114";
-  const email = contact?.email || "tara.juneja@vittmanagement.in";
+  const email = contact?.email || "info@vittmangement.in";
 
   const onHome = pathname === "/";
   const onServices = pathname.startsWith("/services");

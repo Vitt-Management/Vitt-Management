@@ -88,7 +88,7 @@ export async function submitCheckShares(
 
   // 2. Generate mailto URL for direct user mailbox redirection
   const contact = await getSiteContact();
-  const recipient = contact.email || "tara.juneja@vittmanagement.in";
+  const recipient = contact.email || "info@vittmangement.in";
   const emailSubject = encodeURIComponent(`Share Check Request: ${values.shareholderName} - ${values.companyName}`);
 
   const emailBody = [
