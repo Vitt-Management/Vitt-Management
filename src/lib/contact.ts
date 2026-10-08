@@ -17,7 +17,7 @@ const FALLBACK_SITE_SETTINGS: SiteSettingsRow = {
   phone: PRIMARY_PHONE,
   whatsapp_number: PRIMARY_WHATSAPP_NUMBER,
   whatsapp_message: "Hello Vitt Management, I would like to know more about recovering my investments.",
-  email: "info@vittmangement.in",
+  email: "info@vittmanagement.in",
   address: PRIMARY_ADDRESS,
   working_hours: "Mon-Sat, 9 AM - 7 PM",
   map_query: PRIMARY_MAP_QUERY,
@@ -41,7 +41,7 @@ export async function getSiteSettingsRow(): Promise<SiteSettingsRow> {
       settings.email === "komal.goswami@vittmanagement.in" ||
       settings.email === "tara.juneja@vittmanagement.in"
     ) {
-      settings.email = "info@vittmangement.in";
+      settings.email = "info@vittmanagement.in";
     }
     if (!settings.address || settings.address === "Mumbai, India") {
       settings.address = PRIMARY_ADDRESS;

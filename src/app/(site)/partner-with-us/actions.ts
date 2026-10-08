@@ -84,7 +84,7 @@ export async function submitPartnerInquiry(
 
   // 2. Generate mailto URL for direct user mailbox redirection
   const contact = await getSiteContact();
-  const recipient = contact.email || "info@vittmangement.in";
+  const recipient = contact.email || "info@vittmanagement.in";
   const emailSubject = encodeURIComponent(`Partnership Request: ${values.name} (${values.profession})`);
   
   const emailBody = [

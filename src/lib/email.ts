@@ -28,7 +28,7 @@ export async function sendLeadNotificationEmail(
   const recipientEmail =
     process.env.NOTIFICATION_EMAIL ||
     process.env.ADMIN_EMAIL ||
-    "info@vittmangement.in";
+    "info@vittmanagement.in";
 
   const isPartner = type === "partner";
   const partnerData = data as PartnerLeadEmailPayload;

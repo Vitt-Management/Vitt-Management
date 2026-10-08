@@ -1504,7 +1504,7 @@ img {
 .brand-tagline {
   display: block;
   font-family: var(--font-serif);
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 600;
   color: #55635b;
@@ -1739,7 +1739,7 @@ img {
   color: #e3ebe6;
 }
 .faq-page-section {
-  padding: 76px 0 88px;
+  padding: 74px 0 84px;
   background: var(--bg-page);
 }
 .faq-page-content {
@@ -2416,9 +2416,9 @@ img {
 .footer-logo {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   max-width: 100%;
-  padding: 7px 18px 7px 8px;
+  padding: 6px 15px 6px 7px;
   margin-bottom: 10px;
   background: linear-gradient(135deg, #ffffff 0%, #f7f1e7 100%);
   border: 1px solid rgba(223, 184, 124, 0.55);
@@ -2429,8 +2429,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
+  width: 88px;
+  height: 88px;
   flex-shrink: 0;
 }
 .footer-logo-image {
@@ -2446,7 +2446,7 @@ img {
   align-items: baseline;
   gap: 9px;
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 0.95;
