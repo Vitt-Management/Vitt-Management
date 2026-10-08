@@ -1067,9 +1067,9 @@ img {
 }
 
 .site-header .container-custom {
-  max-width: 1400px;
-  padding-left: clamp(20px, 2.5vw, 36px);
-  padding-right: clamp(20px, 2.5vw, 36px);
+  max-width: none;
+  padding-left: clamp(28px, 4vw, 80px);
+  padding-right: clamp(28px, 4vw, 80px);
 }
 
 .top-bar {
@@ -1196,6 +1196,20 @@ img {
   outline: 3px solid var(--gold-primary);
   outline-offset: 4px;
   border-radius: 4px;
+}
+
+.nav-cta {
+  font-size: 0.9rem;
+  padding: 9px 20px;
+  white-space: nowrap;
+  letter-spacing: 0.015em;
+}
+
+.m-cta {
+  width: 100%;
+  margin: 14px 0 6px;
+  padding: 13px 22px;
+  font-size: 1.02rem;
 }
 
 .nav-contact-wrapper {
@@ -1377,9 +1391,12 @@ img {
 }
 
 @media (min-width: 1140px) {
+  .nav-actions {
+    display: none !important;
+  }
   .desktop-nav {
     flex: 1;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: clamp(12px, 1.2vw, 20px);
     min-width: 0;
     margin-left: clamp(24px, 3vw, 48px);
@@ -1417,6 +1434,10 @@ img {
     font-size: 0.85rem;
     padding: 6px 2px;
   }
+  .nav-cta {
+    font-size: 0.8rem;
+    padding: 7px 14px;
+  }
   .brand-row {
     gap: 10px;
   }
@@ -1424,10 +1445,10 @@ img {
     height: 52px;
   }
   .brand-name {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
   }
   .brand-tagline {
-    font-size: 0.62rem;
+    font-size: 0.66rem;
   }
 }
 
@@ -1454,7 +1475,7 @@ img {
   display: inline-flex;
   flex-shrink: 0;
   text-decoration: none;
-  margin-left: clamp(-14px, -1vw, -6px);
+  margin-left: 0;
 }
 .brand-row {
   display: flex;
@@ -1481,7 +1502,7 @@ img {
   align-items: baseline;
   gap: 9px;
   font-family: var(--font-serif);
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 0.95;
@@ -1504,7 +1525,7 @@ img {
 .brand-tagline {
   display: block;
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-style: italic;
   font-weight: 600;
   color: #55635b;
@@ -1523,18 +1544,18 @@ img {
   .brand-row { gap: 10px; }
   .brand-logo { height: 66px; }
   .brand-divider { height: 44px; }
-  .brand-name { gap: 6px; font-size: 1.52rem; }
+  .brand-name { gap: 6px; font-size: 1.42rem; }
   .brand-sub { font-size: 0.82em; letter-spacing: 0.16em; }
-  .brand-tagline { font-size: 0.7rem; margin-top: 1px; }
+  .brand-tagline { font-size: 0.74rem; margin-top: 1px; }
 }
 
 @media (max-width: 420px) {
   .brand-row { gap: 7px; }
   .brand-logo { height: 52px; }
   .brand-divider { height: 36px; }
-  .brand-name { gap: 4px; font-size: 1.25rem; }
+  .brand-name { gap: 4px; font-size: 1.15rem; }
   .brand-sub { font-size: 0.82em; letter-spacing: 0.12em; }
-  .brand-tagline { font-size: 0.58rem; }
+  .brand-tagline { font-size: 0.62rem; }
 }
 
 /* Floating WhatsApp + Call buttons (all public pages) */

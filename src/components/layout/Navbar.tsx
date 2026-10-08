@@ -45,6 +45,7 @@ export default function Navbar({
   const onFaq = pathname === "/faq";
   const onPartner = pathname === "/partner-with-us";
   const onContact = pathname === "/contact";
+  const onCheckShares = pathname === "/check-your-shares";
   const numColumns = 3;
   const servicesPerColumn = Math.ceil(services.length / numColumns);
   const serviceColumns = [
@@ -175,8 +176,8 @@ export default function Navbar({
           <Link href="/partner-with-us" className={`nav-link${onPartner ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/partner-with-us")} {...cur(onPartner)}>
             Partner with Us
           </Link>
-          <Link href="/contact" className="nav-link" onClick={(event) => handleNavigationClick(event, "/contact")}>
-            Start Your Recovery
+          <Link href="/check-your-shares" className={`nav-link${onCheckShares ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/check-your-shares")} {...cur(onCheckShares)}>
+            Check Your Shares
           </Link>
           <div className="nav-contact-wrapper">
             <Link href="/contact" className={`nav-link${onContact ? " active" : ""}`} onClick={(event) => handleNavigationClick(event, "/contact")} {...cur(onContact)}>
@@ -187,6 +188,9 @@ export default function Navbar({
               <span>Call Now</span>
             </a>
           </div>
+          <Link href="/contact" className="btn-primary-gold nav-cta" onClick={(event) => handleNavigationClick(event, "/contact")}>
+            Start Your Recovery
+          </Link>
         </nav>
 
         {/* Mobile menu control */}
@@ -256,16 +260,19 @@ export default function Navbar({
           <Link href="/partner-with-us" onClick={(event) => handleNavigationClick(event, "/partner-with-us")} className={`m-link${onPartner ? " active" : ""}`} {...cur(onPartner)}>
             <span>Partner with Us</span>
           </Link>
-          <Link href="/contact" onClick={(event) => handleNavigationClick(event, "/contact")} className="m-link">
-            <span>Start Your Recovery</span>
+          <Link href="/check-your-shares" onClick={(event) => handleNavigationClick(event, "/check-your-shares")} className={`m-link${onCheckShares ? " active" : ""}`} {...cur(onCheckShares)}>
+            <span>Check Your Shares</span>
           </Link>
           <Link href="/contact" onClick={(event) => handleNavigationClick(event, "/contact")} className={`m-link${onContact ? " active" : ""}`} {...cur(onContact)}>
             <span>Contact Us</span>
           </Link>
-          <a href={phoneHref} onClick={closeAll} className="m-link" style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--gold-dark)", fontWeight: 700 }}>
+          <a href={phoneHref} onClick={closeAll} className="m-link" style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "10px", color: "var(--gold-dark)", fontWeight: 700 }}>
             <Phone size={18} style={{ color: "var(--gold-primary)" }} />
             <span>Call Now ({phone})</span>
           </a>
+          <Link href="/contact" onClick={(event) => handleNavigationClick(event, "/contact")} className="btn-primary-gold m-cta">
+            Start Your Recovery
+          </Link>
         </nav>
       )}
     </header>
